@@ -15,9 +15,16 @@ function showRoute(req, res, next) {
     .catch(next)
 }
 
+function createRoute(req, res, next){
+  //To add (req.body)
+  Cabin.create(req.body)
+    .then(cabin => res.status(201).json(cabin))
+    .catch(next)
+}
 
 
 module.exports = {
   index: indexRoute,
-  show: showRoute
+  show: showRoute,
+  create: createRoute
 }

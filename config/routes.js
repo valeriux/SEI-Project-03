@@ -7,7 +7,6 @@ const cabinsController = require('../controllers/cabins')
 router.get('/', (req, res) => res.json({message: 'Welcome to Cabin API'}))
 router.get('/cabins', cabinsController.index)
 router.get('/cabins/:id', cabinsController.show)
-
-
+router.post('/cabins', cabinsController.create)
 
 module.exports = router
