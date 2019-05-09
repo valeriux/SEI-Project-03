@@ -6,6 +6,18 @@ function indexRoute(req, res, next) {
     .catch(next)
 }
 
+
+
+function showRoute(req, res, next) {
+  Cabin.findById(req.params.id)
+  // POPULATE (createdby)
+    .then(cabin => res.json(cabin))
+    .catch(next)
+}
+
+
+
 module.exports = {
-  index: indexRoute
+  index: indexRoute,
+  show: showRoute
 }
