@@ -1,5 +1,5 @@
 # SEI-Project-03
 
 Valeria
-Charlotte
+Charlotte Haylins
 Aiman Mallah
