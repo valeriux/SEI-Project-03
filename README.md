@@ -2,4 +2,3 @@
 
 Charlotte
 Aiman Mallah
-Valeria...
