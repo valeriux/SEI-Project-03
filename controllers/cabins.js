@@ -8,7 +8,7 @@ function indexRoute(req, res, next) {
 
 function showRoute(req, res, next) {
   Cabin.findById(req.params.id)
-  // POPULATE (createdby)
+    .populate('createdBy', '-email')
     .then(cabin => res.json(cabin))
     .catch(next)
 }

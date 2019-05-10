@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
-//import Auth from '../lib/Auth'
+
+import Auth from '../lib/Auth'
 
 class CabinShow extends React.Component{
+
   constructor(props){
     super(props)
 
@@ -10,6 +13,7 @@ class CabinShow extends React.Component{
       data: null
     }
 
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
@@ -17,9 +21,23 @@ class CabinShow extends React.Component{
       .then(res => this.setState({ data: res.data }))
   }
 
+  handleDelete() {
+    const token = Auth.getToken()
+    axios.delete(`/api/cabins/${this.props.match.params.id}`, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+      .then(() => this.props.history.push('/cabins'))
+  }
+
+  canModify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.createdBy._id
+  }
+
 
   render() {
+    // console.log(this.state.data)
     if(!this.state.data) return null
+
     return(
       <section className="section">
         <div className="container">
@@ -28,9 +46,13 @@ class CabinShow extends React.Component{
             <div className="level-left">
               <h1 className="title is-1">{this.state.data.title}</h1>
             </div>
-            <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+            {this.canModify() &&
+            <div className="level-right">
+              <Link to={`/cabins/${this.state.data._id}/edit`} className="button is-primary">Edit</Link>
+              <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+            </div>
+            }
           </div>
-
           <hr/>
 
           <div className="columns">
