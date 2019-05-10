@@ -6,8 +6,6 @@ function indexRoute(req, res, next) {
     .catch(next)
 }
 
-
-
 function showRoute(req, res, next) {
   Cabin.findById(req.params.id)
   // POPULATE (createdby)
@@ -21,7 +19,6 @@ function createRoute(req, res, next){
     .then(cabin => res.status(201).json(cabin))
     .catch(next)
 }
-
 
 module.exports = {
   index: indexRoute,
