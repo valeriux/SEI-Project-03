@@ -9,7 +9,7 @@ const cabinSchema = new mongoose.Schema({
   title: {type: String, required: true},
   image: { type: String, required: true},
   sleeps: { type: Number, required: true},
-  address: {type: String, required: true, unique: true}, // REVISIT POTENTIALLY FOR POSTCODE
+  address: {type: String, required: true}, // REVISIT POTENTIALLY FOR POSTCODE
   description: {type: String, required: true},
   email: {type: String, required: true, unique: true}
   // CREATED BY TO BE ADDED LATER
