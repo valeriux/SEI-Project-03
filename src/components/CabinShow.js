@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import Auth from '../lib/Auth'
@@ -29,9 +29,9 @@ class CabinShow extends React.Component{
       .then(() => this.props.history.push('/cabins'))
   }
 
-  canModify() {
-    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.createdBy._id
-  }
+  // canModify() {
+  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.createdBy._id
+  // }
 
 
   render() {
@@ -46,12 +46,9 @@ class CabinShow extends React.Component{
             <div className="level-left">
               <h1 className="title is-1">{this.state.data.title}</h1>
             </div>
-            {this.canModify() &&
             <div className="level-right">
-              <Link to={`/cabins/${this.state.data._id}/edit`} className="button is-primary">Edit</Link>
               <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
             </div>
-            }
           </div>
           <hr/>
 
@@ -70,3 +67,5 @@ class CabinShow extends React.Component{
 }
 
 export default CabinShow
+
+// <Link to={`/cabins/${this.state.data._id}/edit`} className="button is-primary">Edit</Link>

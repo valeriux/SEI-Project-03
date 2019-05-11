@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
-// to encrypt password
 const bcrypt = require('bcrypt')
 
-// schema denotes what is required from the user in order to register
 const userSchema = new mongoose.Schema({
   username: {
     type: String,
@@ -27,11 +25,13 @@ const userSchema = new mongoose.Schema({
     required: 'Please tell us about yourself'
   }
 })
-// because we don't want password to be stored, so checks its the same without storing
+
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(plaintext) {
     this._passwordConfirmation = plaintext
   })
+
+
 // LIFE CYCLE HOOKS
 userSchema.pre('validate', function checkPasswords(next) {
   if(this.isModified('password') && this._passwordConfirmation !== this.password) {
