@@ -29,13 +29,7 @@ class CabinShow extends React.Component{
       .then(() => this.props.history.push('/cabins'))
   }
 
-  // canModify() {
-  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.createdBy._id
-  // }
-
-
   render() {
-    // console.log(this.state.data)
     if(!this.state.data) return null
 
     return(
@@ -67,5 +61,3 @@ class CabinShow extends React.Component{
 }
 
 export default CabinShow
-
-// <Link to={`/cabins/${this.state.data._id}/edit`} className="button is-primary">Edit</Link>
