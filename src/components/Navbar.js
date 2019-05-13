@@ -30,7 +30,10 @@ class Navbar extends React.Component {
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item">Home</Link>
+
+            <Link to="/" >
+              <img  className="logo" src="https://image.flaticon.com/icons/svg/1348/1348805.svg"/>
+            </Link>
 
             <a role="button" className={`navbar-burger${this.state.active ? ' is-active' : ''}`} onClick={this.toggleActive}>
               <span aria-hidden="true"></span>

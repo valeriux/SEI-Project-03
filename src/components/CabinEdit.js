@@ -72,6 +72,21 @@ class CabinEdit extends React.Component {
                 </div>
                 {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
 
+
+                <div className="field">
+                  <label className="label">Price</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="price"
+                      placeholder="eg: £200"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                {this.state.errors.price && <div className="help is-danger">{this.state.errors.price}</div>}
+
+
                 <div className="field">
                   <label className="label">Sleeps</label>
                   <div className="control">
@@ -98,18 +113,20 @@ class CabinEdit extends React.Component {
                 </div>
                 {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
 
+
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">
-                    <input
-                      className="input"
+                    <textarea
+                      className="textarea"
+                      type="textarea"
                       name="description"
-                      placeholder="eg: Cosy with views"
-                      onChange={this.handleChange}
-                    />
+                      placeholder="eg: A tranquil lakeside cabin, just moments from the unspoilt golden sands of the Sussex coast."
+                      onChange={this.handleChange} />
                   </div>
+                  {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
                 </div>
-                {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
+
 
                 <div className="field">
                   <label className="label">Email</label>

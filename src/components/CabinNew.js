@@ -25,7 +25,9 @@ class CabinNew extends React.Component {
     const token = Auth.getToken()
 
     axios.post('api/cabins', this.state.data, {
-      headers: { 'Authorization': `Bearer ${token}` }
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({errors: err.response.data.errors}))
@@ -37,6 +39,10 @@ class CabinNew extends React.Component {
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
+
+
+
+              <h1 className="title is-3"> Add     a     new     Cabin</h1>
               <form onSubmit={this.handleSubmit}>
 
                 <div className="field">
@@ -44,65 +50,69 @@ class CabinNew extends React.Component {
                   <div className="control">
                     <input
                       className="input"
+                      type="text"
                       name="title"
-                      placeholder="eg: Sea View Sanctuary"
-                      onChange={this.handleChange}
-                    />
+                      placeholder="eg: Lodge on the lake"
+                      onChange={this.handleChange} />
                   </div>
+                  {this.state.errors.title && <div className="help is-danger">{this.state.errors.title}</div>}
                 </div>
-                {this.state.errors.title && <div className="help is-danger">{this.state.errors.title}</div>}
+
 
                 <div className="field">
                   <label className="label">Image</label>
                   <div className="control">
                     <input
                       className="input"
+                      type="text"
                       name="image"
                       placeholder="eg: https://fkfske.com/images/bollocks.png"
-                      onChange={this.handleChange}
-                    />
+                      onChange={this.handleChange} />
                   </div>
-                </div>
-                {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
+                  {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
 
+
+                </div>
                 <div className="field">
                   <label className="label">Sleeps</label>
                   <div className="control">
                     <input
                       className="input"
+                      type="text"
                       name="sleeps"
                       placeholder="eg: 4"
-                      onChange={this.handleChange}
-                    />
+                      onChange={this.handleChange} />
                   </div>
+                  {this.state.errors.sleeps&& <div className="help is-danger">{this.state.errors.sleeps}</div>}
                 </div>
-                {this.state.errors.sleeps && <div className="help is-danger">{this.state.errors.sleeps}</div>}
 
                 <div className="field">
                   <label className="label">Address</label>
                   <div className="control">
                     <input
                       className="input"
+                      type="text"
                       name="address"
                       placeholder="eg: 1 Seaside Avenue, Hastings, SE1 4NN"
-                      onChange={this.handleChange}
-                    />
+                      onChange={this.handleChange} />
                   </div>
+                  {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
                 </div>
-                {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
+
 
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">
-                    <input
-                      className="input"
+                    <textarea
+                      className="textarea"
+                      type="textarea"
                       name="description"
-                      placeholder="eg: Cosy with views"
-                      onChange={this.handleChange}
-                    />
+                      placeholder="eg: A tranquil lakeside cabin, just moments from the unspoilt golden sands of the Sussex coast."
+                      onChange={this.handleChange} />
                   </div>
+                  {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
                 </div>
-                {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
+
 
                 <div className="field">
                   <label className="label">Email</label>
@@ -111,20 +121,21 @@ class CabinNew extends React.Component {
                       className="input"
                       name="email"
                       placeholder="eg: aiman@example.co.uk"
-                      onChange={this.handleChange}
-                    />
+                      onChange={this.handleChange}/>
                   </div>
+                  {this.state.errors.email && <div className="help is-danger">
+                    {this.state.errors.email}</div>}
                 </div>
-                {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
-
-                <button className="button is-primary">Submit</button>
+                <button className="button  is-primary is-centered">Add Cabin</button>
               </form>
+
             </div>
           </div>
         </div>
+
+
       </section>
     )
   }
 }
-
 export default CabinNew
