@@ -40,8 +40,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           address: '405 S Coast Rd, Telscombe Cliffs, Peacehaven',
           postcode: 'TN22 3SS',
           description: 'Wake up to panoramic views overlooking the lake, enjoy some breakfast on the decking watching the feeding fish or letting the world go by before setting about your day, its the perfect spot for fishing, walking, cycling, sightseeing or shopping!',
-          email: 'valeria@ga.co.uk',
-          createdBy: user
+          email: 'valeria@ga.co.uk'
         },
         {
           title: 'Luxury Cabin',
@@ -59,8 +58,8 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           image: 'https://coolstays.imgix.net/18433.jpg?&h=700&fit=crop&auto=compress',
           price: 200,
           sleeps: 2,
-          address: 'The Dell, Sandy Cliff Drive,',
-          postcode: 'BN10 7HX',
+          address: 'The Dell, Sandy Cliff Drive',
+          poatcode: 'BN10 7HX',
           description: 'Stylish and chic coastal chalet perfect for romantic getaways. Beautiful sea views to be enjoyed from every room as well as from an impressive decked area. Luxuriously furnished, The Dell is idyllic both inside and out',
           email: 'tormund@giantbitty.co.uk',
           createdBy: user
@@ -182,7 +181,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 2,
           address: '10 Crewkerne Lane, Trumpington, Pevensey',
           postcode: 'BN24 6HS',
-          description: 'You\'ll find The Shepherd\'s Hut Retreat in an idyllic rural location, surrounded by organic farmland. Beautifully positioned between the trees and on the water\'s edge, each hut features a private bathroom, a well-equipped kitchen and WiFi. You\'ll also have your own decking and fire pit to make the most of those amazing views.',
+          description: 'Are you looking for an entirely different kind of fresh escape?  How about one that allows you to enjoy the blissful peace and lush tranquillity of nature at its absolute finest, all the while living in the lap of indulgent luxury? You can luxuriate in the company of your loved one, beside a gently glowing wood-burning stove. Head outside to the radial deck by evening, with snug seating and a warming firepit to spend endless evenings beside, whiling away your holiday hours by chatting fondly about life, love and everything in between! StarBed Hideaways is the embodiment of your holiday dreams.',
           email: 'dontforget@topopulate.com',
           createdBy: user
         },

@@ -27,12 +27,6 @@ class CabinShow extends React.Component{
       .then(() => this.props.history.push('/cabins'))
   }
 
-  // canModify() {
-  //   return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.data.createdBy._id
-  // }
-
-
-
   render(){
     const state = this.state.cabin
     if (!this.state.cabin) return null

@@ -13,6 +13,7 @@ import Register from './components/Register'
 import Login from './components/Login'
 import CabinNew from './components/CabinNew'
 import CabinEdit from './components/CabinEdit'
+import Map from './components/Map'
 
 import SecureRoute from './components/SecureRoute'
 
@@ -28,6 +29,7 @@ class App extends React.Component {
             <SecureRoute path="/cabins/new" component={CabinNew}/>
             <Route path="/cabins/:id" component={CabinShow}/>
             <Route path="/cabins" component={CabinsIndex} />
+            <Route path="/map" component={Map}/>
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home}/>
