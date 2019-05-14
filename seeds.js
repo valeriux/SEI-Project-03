@@ -16,13 +16,12 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
         passwordConfirmation: 'pass'
       })
     })
-
     .then(user => {
       Cabin.create([
         {
           title: 'Floating Portal',
           image: 'https://a0.muscache.com/im/pictures/9a5a21e2-6e48-4ec3-902e-f289c01f549e.jpg?aki_policy=x_large',
-          price: 150, // add in £ and pn
+          price: 150,
           sleeps: 4,
           address: '2 Fletching Lane, Uckfield, East Sussex',
           postcode: 'TN22 3SS',
@@ -50,7 +49,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           image: 'https://a0.muscache.com/im/pictures/dd496910-a0bd-4dc6-a82c-c1650d9a2430.jpg?aki_policy=xx_large',
           price: 180,
           sleeps: 2,
-          address: '14 Cavendish Lane, Eastbourne,',
+          address: '14 Cavendish Lane, Eastbourne',
           postcode: 'BN21 3RR',
           longitude: 0.28895,
           latitude: 50.77086,
@@ -89,7 +88,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           image: 'https://coolstays.imgix.net/47282.jpg?&h=700&fit=crop&auto=compress',
           price: 220,
           sleeps: 4,
-          address: 'Climping Beach Hut 1, Climping,',
+          address: 'Climping Beach Hut 1, Climping',
           postcode: 'BN17 5DL',
           longitude: -0.54599,
           latitude: 50.80604,
@@ -115,7 +114,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           image: 'https://coolstays.imgix.net/78595.jpg?&h=700&fit=crop&auto=compress',
           price: 180,
           sleeps: 3,
-          address: '3 Sauchope Lane, Seaside,',
+          address: '3 Sauchope Lane, Seaside',
           postcode: 'TN40 1LS',
           longitude: 0.48133,
           latitude: 50.83874,

@@ -14,6 +14,10 @@ const CabinCard = (props) => {
         </figure>
       </div>
 
+      <div className="card-header">
+        <h3 className="card-header-title">{props.address}</h3>
+      </div>
+
     </div>
   )
 }
