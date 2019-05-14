@@ -9,6 +9,8 @@ const cabinSchema = new mongoose.Schema({
   sleeps: { type: Number, required: true},
   address: {type: String, required: true},
   postcode: {type: String, required: true},
+  longitude: {type: Number},
+  latitude: {type: Number},
   description: {type: String, required: true},
   email: {type: String, required: true},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'}
