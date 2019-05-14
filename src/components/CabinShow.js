@@ -12,7 +12,7 @@ class CabinShow extends React.Component{
     super(props)
 
     this.state={
-      data: null
+      cabin: null
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -20,7 +20,7 @@ class CabinShow extends React.Component{
 
   componentDidMount() {
     axios.get(`/api/cabins/${this.props.match.params.id}`)
-      .then(res => this.setState({ data: res.data }))
+      .then(res => this.setState({ cabin: res.data }))
   }
 
   handleDelete() {
@@ -31,20 +31,7 @@ class CabinShow extends React.Component{
       .then(() => this.props.history.push('/cabins'))
   }
 
-<<<<<<< HEAD
-  canModify() {
-    return Auth.isAuthenticated()
-  }
 
-
-  render() {
-    // console.log(this.state.data)
-    if(!this.state.data) return null
-
-    return(
-      <section className="section">
-        <div className="container">
-=======
   render(){
     const state = this.state.cabin
     if (!this.state.cabin) return null
@@ -57,55 +44,32 @@ class CabinShow extends React.Component{
             </div>
           </div>
           <hr />
->>>>>>> development
-
-          <div className="level">
-            <div className="level-left">
-              <h1 className="title is-1">{this.state.data.title}</h1>
-            </div>
-<<<<<<< HEAD
-            {this.canModify() &&
-=======
-
+          <div className="columns is-multiline">
             <div className="column is-half-desktop is-full-tablet">
-
+              <figure className="image">
+                <img src={state.image} alt={state.title} />
+              </figure>
+            </div>
+            <div className="column is-half-desktop is-full-tablet">
               <div className="column is-half-desktop is-full-tablet">
                 <h2 className="title is-6">Sleeps: {state.sleeps}</h2>
                 <hr />
-
               </div>
               <div className="column is-half-desktop is-full-tablet">
                 <h2 className="title is-6">Address: {state.address}</h2>
                 <hr />
               </div>
-
               <div className="column is-one-half">
                 <h2 className="title is-6">Description: {state.description}</h2>
                 <hr />
               </div>
-
-
->>>>>>> development
               <div className="level-right">
-                <Link to={`/cabins/${this.state.data._id}/edit`} className="button is-primary">Edit</Link>
+                <Link to={`/cabins/${state._id}/edit`} className="button is-primary">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
-            }
-          </div>
-          <hr/>
-
-          <div className="columns">
-            <div className="column">
-              <figure className="image">
-                <img src={this.state.data.image} alt={this.state.data.name}/>
-              </figure>
             </div>
+            <CabinMap data={state} />
           </div>
-
-          <CabinMap
-            data={this.state.data}
-          />
-
         </div>
       </section>
     )
