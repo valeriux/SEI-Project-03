@@ -37,9 +37,6 @@ class CabinShow extends React.Component{
             <div className="level-left">
               <h1 className="title is-1">{state.title}</h1>
             </div>
-
-
-
           </div>
           <hr />
 
@@ -66,6 +63,7 @@ class CabinShow extends React.Component{
                 <h2 className="title is-6">Description: {state.description}</h2>
                 <hr />
               </div>
+
 
               <div className="level-right">
                 <Link to={`/cabins/${state._id}/edit`} className="button is-primary">Edit</Link>

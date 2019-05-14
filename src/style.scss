@@ -11,25 +11,42 @@ body{
   padding-top: 5px;
 }
 
-.hometitle{
+.hometitle1{
   font-size: 72px;
   color: #FFFFFF;
   text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF6347 0px 0px 20px, #FF6347 0px 0px 30px, #FF4500	 0px 0px 40px, #FF4500	 0px 0px 50px, #FF4500	 0px 0px 75px;
   color: #FFFFFF;
 }
 
-.subtitle{
+.subtitle1{
   font-size: 30px;
   color: #FFFFFF;
   text-shadow: #FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF6347 0px 0px 20px, #FF6347 0px 0px 30px, #FF4500	 0px 0px 40px, #FF4500	 0px 0px 50px, #FF4500	 0px 0px 75px;
   color: #FFFFFF;
 }
 
+
 .section {
-      margin-top: 100px;
+      margin-top: 10px;
+      color: black
 }
-.Navbar{
-  background-image: pink;
+
+.user-background {
+  min-height: 800px;
+}
+
+.profile {
+  max-width: 800px;
+}
+
+.columns-profile {
+  height: 250px;
+}
+
+.img-profile {
+  border-radius: 10%;
+  justify-content: center;
+  display: flex;
 }
 
 
@@ -67,7 +84,6 @@ h1 {
   background-position: center center;
   padding: 2rem;
 }
-
 
 
 .bird {
