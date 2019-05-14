@@ -70,9 +70,24 @@ class CabinNew extends React.Component {
                       onChange={this.handleChange} />
                   </div>
                   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
-
-
                 </div>
+
+
+                <div className="field">
+                  <label className="label">Price</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="number"
+                      name="price"
+                      placeholder="eg: £120"
+                      onChange={this.handleChange} />
+                  </div>
+                  {this.state.errors.number && <div className="help is-danger">{this.state.errors.number}</div>}
+                </div>
+
+
+
                 <div className="field">
                   <label className="label">Sleeps</label>
                   <div className="control">
@@ -98,6 +113,21 @@ class CabinNew extends React.Component {
                   </div>
                   {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
                 </div>
+
+
+                <div className="field">
+                  <label className="label">Postcode</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      name="postcode"
+                      placeholder="eg: 1 Seaside Avenue, Hastings, SE1 4NN"
+                      onChange={this.handleChange} />
+                  </div>
+                  {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
+                </div>
+
 
 
                 <div className="field">

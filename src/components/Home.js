@@ -6,7 +6,7 @@ const Home = () => {
       <div className="hero-body">
         <div className="container">
 
-          <h1 className="title hometitle" >
+          <h1 className="title hometitle1" >
       The Cabin Fever
           </h1>
 
@@ -26,7 +26,7 @@ const Home = () => {
             <div className="bird bird--four"></div>
           </div>
 
-          <h2 className="subtitle">
+          <h2 className="subtitle1">
       A site for luxury cabins
           </h2>
 
