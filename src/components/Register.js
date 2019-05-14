@@ -1,13 +1,16 @@
 import React from 'react'
 import axios from 'axios'
+//import ReactFilestack from 'filestack-react'
+
+
 
 class Register extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      data: {}
-      // errors: {}
+      data: {},
+      errors: {}
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -97,10 +100,3 @@ class Register extends React.Component {
   }
 }
 export default Register
-
-//       {this.state.errors.username && <div className="help is-danger">{this.state.errors.username}</div>}
-// {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
-//     {this.state.errors.password && <div className="help is-danger">{this.state.errors.password}</div>}
-// {this.state.errors.passwordConfirmation && <div className="help is-danger">{this.state.errors.passwordConfirmation}</div>}
-//   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
-//   {this.state.errors.bio && <div className="help is-danger">{this.state.errors.bio}</div>}

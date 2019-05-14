@@ -19,8 +19,6 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
 
     .then(user => {
       Cabin.create([
-
-
         {
           title: 'Floating Portal',
           image: 'https://a0.muscache.com/im/pictures/9a5a21e2-6e48-4ec3-902e-f289c01f549e.jpg?aki_policy=x_large',
@@ -44,7 +42,8 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           longitude: -0.19607,
           latitude: 50.92269,
           description: 'Wake up to panoramic views overlooking the lake, enjoy some breakfast on the decking watching the feeding fish or letting the world go by before setting about your day, its the perfect spot for fishing, walking, cycling, sightseeing or shopping!',
-          email: 'valeria@ga.co.uk'
+          email: 'valeria@ga.co.uk',
+          createdBy: user
         },
         {
           title: 'Luxury Cabin',
@@ -65,7 +64,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           price: 200,
           sleeps: 2,
           address: 'The Dell, Sandy Cliff Drive',
-          poatcode: 'BN10 7HX',
+          postcode: 'BN10 7HX',
           longitude: -0.00765,
           latitude: 50.79247,
           description: 'Stylish and chic coastal chalet perfect for romantic getaways. Beautiful sea views to be enjoyed from every room as well as from an impressive decked area. Luxuriously furnished, The Dell is idyllic both inside and out',
