@@ -17,6 +17,10 @@ import CabinEdit from './components/CabinEdit'
 import UserShow from './components/UserShow'
 import UserEdit from './components/UserEdit'
 
+import Conversation from './components/Conversation'
+import MessageList from './components/MessageList'
+import SendMessageForm from './components/SendMessageForm'
+
 import SecureRoute from './components/SecureRoute'
 
 
@@ -35,6 +39,11 @@ class App extends React.Component {
             <Route path="/users/:id" component={UserShow}/>
 
             <Route path="/cabins" component={CabinsIndex} />
+
+            <Route path="/conversation/:id/sendmessageform" component={SendMessageForm} />
+            <Route path="/conversation/:id/messagelist" component={MessageList} />
+            <Route path="/conversation/:id" component={Conversation} />
+
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home}/>
@@ -46,8 +55,6 @@ class App extends React.Component {
     )
   }
 }
-
-
 
 ReactDOM.render(
   <App />,

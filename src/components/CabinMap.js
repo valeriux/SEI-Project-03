@@ -31,8 +31,8 @@ class CabinMap extends React.Component {
         <Marker className="marker"
           coordinates={[this.props.data.longitude, this.props.data.latitude]}
           anchor="bottom">
-          <img src={'../images/pin.png'}/
-          >
+          <img src={'../images/pin.png'}
+          />
         </Marker>
         <Layer
           type='symbol'

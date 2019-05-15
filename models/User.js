@@ -24,6 +24,16 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: 'Please tell us about yourself'
   }
+}, {
+  toJSON: {
+    virtuals: true
+  }
+})
+
+userSchema.virtual('conversations', {
+  localField: '_id',
+  foreignField: 'between',
+  ref: 'Conversation'
 })
 
 userSchema.virtual('passwordConfirmation')
@@ -32,7 +42,6 @@ userSchema.virtual('passwordConfirmation')
   })
 
 
-// LIFE CYCLE HOOKS
 userSchema.pre('validate', function checkPasswords(next) {
   if(this.isModified('password') && this._passwordConfirmation !== this.password) {
     this.invalidate('passwordConfirmation', 'Passwords do not match')

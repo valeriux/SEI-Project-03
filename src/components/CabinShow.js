@@ -33,6 +33,7 @@ class CabinShow extends React.Component{
 
 
   render(){
+    console.log(this.state)
     const state = this.state.cabin
     if (!this.state.cabin) return null
     return (
