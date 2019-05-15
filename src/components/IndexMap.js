@@ -25,8 +25,8 @@ class IndexMap extends React.Component {
         <div className="location">
           <Map
             style='mapbox://styles/mapbox/streets-v9'
-            center={[-1, 51.1010]}
-            zoom={[6.5]}
+            center={[0, 51.1010]}
+            zoom={[8]}
             containerStyle={{
               height: '80vh',
               width: '80vw'
@@ -49,8 +49,11 @@ class IndexMap extends React.Component {
                 offset={{
                   'bottom-left': [12, -38],  'bottom': [0, -38], 'bottom-right': [-12, -38]
                 }}>
-                <h3>{cabin.title}</h3>
-                <img className="popupimage"src={cabin.image} alt={cabin.name}/>
+                <div>
+                  <h3>{cabin.title}</h3>
+                  <img className="popupimage"src={cabin.image} alt={cabin.name}/>
+                  <h3> Price: {cabin.price} | Sleeps: {cabin.sleeps}</h3>
+                </div>
               </Popup>
             )}
 
