@@ -743,6 +743,7 @@
   integrity sha512-Es6WcD0nO5l+2BOQS4uLfNPYQaNDfbot3X1XUoloz+x0mPDS3eeORZJl06HXjwBG1fOGwCRnzK88LMdxKRrd6Q==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@pusher/chatkit-client@^1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@pusher/chatkit-client/-/chatkit-client-1.5.0.tgz#b75c0fa3a33effb679376b7e62969e709ab046dd"
@@ -786,6 +787,8 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+=======
+>>>>>>> development
 =======
 >>>>>>> development
 "@turf/bbox@4.7.3":
@@ -2103,6 +2106,7 @@ decode-uri-component@^0.2.0:
   integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 decompress-response@^3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/decompress-response/-/decompress-response-3.3.0.tgz#80a4dd323748384bfa248083622aedec982adff3"
@@ -2110,6 +2114,8 @@ decompress-response@^3.3.0:
   dependencies:
     mimic-response "^1.0.0"
 
+=======
+>>>>>>> development
 =======
 >>>>>>> development
 deep-equal@1.0.1, deep-equal@^1.0.1:
@@ -2324,6 +2330,7 @@ dotenv@^6.2.0:
   integrity sha512-HygQCKUBSFl8wKQZBSemMywRWcEDNidvNbjGVyZu3nbZ8qq9ubiPoGLMdRDpfSrpkkm9BXYFkpKxxFX38o/76w==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 dotenv@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.0.0.tgz#ed310c165b4e8a97bb745b0a9d99c31bda566440"
@@ -2334,6 +2341,8 @@ duplexer3@^0.1.4:
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
 
+=======
+>>>>>>> development
 =======
 >>>>>>> development
 duplexify@^3.4.2, duplexify@^3.6.0:
