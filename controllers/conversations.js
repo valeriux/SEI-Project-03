@@ -4,19 +4,21 @@ const Conversation = require('../models/Conversation')
 function showRoute(req, res, next) {
   Conversation.findById(req.params.id)
   // Gets messaging users schema data, between ids data, cabin id, message content
-    .populate('createdBy')
+    .populate('cabin', 'image title')
+    .populate('messages.user', 'username photo')
     .then(conversation => res.json(conversation))
     .catch(next)
 }
 // creates an array of 2 user schemas, with a userShema incorporating that user's message content, separated by a cabin id.
 function createRoute(req, res, next){
   // content created between the current messaging user and the cabin creator
-  req.body.between = [req.currentUser, req.body.cabin.createdBy]
-  req.body.messages = [{
-    content: req.body.message,
-    user: req.currentUser
-    // for code purposes, creating the first message in the chain
-  }]
+  req.body.between = [req.currentUser, req.body.to] //CONVERSATION CREATE
+  //**took out following as it was creating the first message in Cabin show which then gave content to
+  // req.body.messages = [{
+  //   content: req.body.content,
+  //   user: req.currentUser
+  //   // for code purposes, creating the first message in the chain (to be transferred from cabinShow to conversation page)
+  // }]
   Conversation.create(req.body)
     .then(conversation => res.status(201).json(conversation))
     .catch(next)

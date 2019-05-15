@@ -13,6 +13,11 @@ import Register from './components/Register'
 import Login from './components/Login'
 import CabinNew from './components/CabinNew'
 import CabinEdit from './components/CabinEdit'
+
+import Conversation from './components/Conversation'
+import MessageList from './components/MessageList'
+import SendMessageForm from './components/SendMessageForm'
+
 import UserShow from './components/UserShow'
 import SecureRoute from './components/SecureRoute'
 
@@ -29,6 +34,11 @@ class App extends React.Component {
             <Route path="/cabins/:id" component={CabinShow}/>
             <Route path="/users/:id" component={UserShow}/>
             <Route path="/cabins" component={CabinsIndex} />
+
+            <Route path="/conversation/:id/sendmessageform" component={SendMessageForm} />
+            <Route path="/conversation/:id/messagelist" component={MessageList} />
+            <Route path="/conversation/:id" component={Conversation} />
+
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home}/>

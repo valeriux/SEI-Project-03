@@ -1,43 +1,33 @@
 import React from 'react'
 import Auth from '../lib/Auth'
 import axios from 'axios'
-
 class CabinEdit extends React.Component {
   constructor() {
     super()
-
     this.state = {
       data: {},
       errors: {}
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-
   componentDidMount() {
     axios.get(`api/cabins/${this.props.match.params.id}`)
       .then(res => this.setState({data: res.data}))
   }
-
-
   handleChange(e) {
     const data = {...this.state.data, [e.target.name]: e.target.value} //existing data + the bit the user is typing
     this.setState({ data })
   }
-
   handleSubmit(e) {
     e.preventDefault()
-
     const token = Auth.getToken()
-
     axios.put(`api/cabins/${this.state.data._id}`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
-
   render() {
     return (
       <section className="section">
@@ -45,7 +35,6 @@ class CabinEdit extends React.Component {
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
               <form onSubmit={this.handleSubmit}>
-
                 <div className="field">
                   <label className="label">Title</label>
                   <div className="control">
@@ -58,7 +47,6 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.title && <div className="help is-danger">{this.state.errors.title}</div>}
-
                 <div className="field">
                   <label className="label">Image</label>
                   <div className="control">
@@ -71,8 +59,6 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
-
-
                 <div className="field">
                   <label className="label">Price</label>
                   <div className="control">
@@ -85,8 +71,6 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.price && <div className="help is-danger">{this.state.errors.price}</div>}
-
-
                 <div className="field">
                   <label className="label">Sleeps</label>
                   <div className="control">
@@ -99,7 +83,6 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.sleeps && <div className="help is-danger">{this.state.errors.sleeps}</div>}
-
                 <div className="field">
                   <label className="label">Address</label>
                   <div className="control">
@@ -112,8 +95,6 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
-
-
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">
@@ -126,8 +107,6 @@ class CabinEdit extends React.Component {
                   </div>
                   {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
                 </div>
-
-
                 <div className="field">
                   <label className="label">Email</label>
                   <div className="control">
@@ -140,7 +119,6 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
-
                 <button className="button is-primary">Submit</button>
               </form>
             </div>
@@ -150,5 +128,4 @@ class CabinEdit extends React.Component {
     )
   }
 }
-
 export default CabinEdit
