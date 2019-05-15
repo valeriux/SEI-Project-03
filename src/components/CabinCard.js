@@ -18,6 +18,12 @@ const CabinCard = (props) => {
         <h3 className="card-header-title">{props.address}</h3>
       </div>
 
+      <div className="card-header">
+        <h3 className="card-header-title">Price: £{props.price}</h3>
+        <h3 className="card-header-title">Sleeps: {props.sleeps}</h3>
+
+      </div>
+
     </div>
   )
 }
