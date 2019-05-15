@@ -28,6 +28,7 @@ function messageCreateRoute(req, res, next) {
   // the content of the messages is attached to the current user?
   req.body.user = req.currentUser
   Conversation.findById(req.params.id)
+    .populate('messages.user') // populated here so all user data gets sent to front end, enabling the id name on messages other than just the last.
     .then(conversation => {
       conversation.messages.push(req.body)
       return conversation.save()
