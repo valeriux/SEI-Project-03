@@ -42,7 +42,6 @@ userSchema.virtual('passwordConfirmation')
   })
 
 
-// LIFE CYCLE HOOKS
 userSchema.pre('validate', function checkPasswords(next) {
   if(this.isModified('password') && this._passwordConfirmation !== this.password) {
     this.invalidate('passwordConfirmation', 'Passwords do not match')

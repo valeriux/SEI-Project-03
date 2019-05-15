@@ -11,11 +11,12 @@ router.get('/', (req, res) => res.json({message: 'Welcome to Cabin API'}))
 router.get('/cabins', cabinsController.index)
 router.get('/cabins/:id', cabinsController.show)
 
+// -------
 router.get('/conversations/:id', conversationsController.show)
 // next two had to be secure because they are post requests and the authorisation process, creates req.
 router.post('/conversations', secureRoute, conversationsController.create)
 router.post('/conversations/:id/messages', secureRoute, conversationsController.messageCreate)
-
+// -------
 router.get('/users/:id', usersController.show)
 
 router.post('/cabins', secureRoute, cabinsController.create)

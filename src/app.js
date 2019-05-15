@@ -14,11 +14,12 @@ import Login from './components/Login'
 import CabinNew from './components/CabinNew'
 import CabinEdit from './components/CabinEdit'
 
+import UserShow from './components/UserShow'
+
 import Conversation from './components/Conversation'
 import MessageList from './components/MessageList'
 import SendMessageForm from './components/SendMessageForm'
 
-import UserShow from './components/UserShow'
 import SecureRoute from './components/SecureRoute'
 
 

@@ -24,11 +24,22 @@ class CabinNew extends React.Component {
     e.preventDefault()
     const token = Auth.getToken()
 
-    axios.post('api/cabins', this.state.data, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}` }
-    })
+    axios.get(`https://api.postcodes.io/postcodes?q=${this.state.data.postcode}`)
+      .then(res => {
+        // console.log(res)
+        const lat = res.data.result[0].latitude
+        const long = res.data.result[0].longitude
+        const data = {...this.state.data, longitude: long, latitude: lat}
+        this.setState({ data })
+      })
+      .then(() => {
+        console.log(this.state.data)
+        axios.post('api/cabins', this.state.data, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}` }
+        })
+      })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({errors: err.response.data.errors}))
   }
@@ -42,7 +53,7 @@ class CabinNew extends React.Component {
 
 
 
-              <h1 className="title is-3"> Add     a     new     Cabin</h1>
+              <h1 className="title is-3"> Add a new Cabin</h1>
               <form onSubmit={this.handleSubmit}>
 
                 <div className="field">
@@ -108,7 +119,7 @@ class CabinNew extends React.Component {
                       className="input"
                       type="text"
                       name="address"
-                      placeholder="eg: 1 Seaside Avenue, Hastings, SE1 4NN"
+                      placeholder="eg: 1 Seaside Avenue, Hastings"
                       onChange={this.handleChange} />
                   </div>
                   {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
@@ -122,7 +133,7 @@ class CabinNew extends React.Component {
                       className="input"
                       type="text"
                       name="postcode"
-                      placeholder="eg: 1 Seaside Avenue, Hastings, SE1 4NN"
+                      placeholder="SE1 4NN"
                       onChange={this.handleChange} />
                   </div>
                   {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
@@ -156,7 +167,10 @@ class CabinNew extends React.Component {
                   {this.state.errors.email && <div className="help is-danger">
                     {this.state.errors.email}</div>}
                 </div>
-                <button className="button  is-primary is-centered">Add Cabin</button>
+                <button
+                  className="button is-primary is-centered">
+                  Add Cabin
+                </button>
               </form>
 
             </div>

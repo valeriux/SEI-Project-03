@@ -22,9 +22,20 @@ class CabinEdit extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const token = Auth.getToken()
-    axios.put(`api/cabins/${this.state.data._id}`, this.state.data, {
-      headers: { 'Authorization': `Bearer ${token}` }
-    })
+
+    axios.get(`https://api.postcodes.io/postcodes?q=${this.state.data.postcode}`)
+      .then(res => {
+        // console.log(res)
+        const lat = res.data.result[0].latitude
+        const long = res.data.result[0].longitude
+        const data = {...this.state.data, longitude: long, latitude: lat}
+        this.setState({ data })
+      })
+      .then(() => {
+        axios.put(`api/cabins/${this.state.data._id}`, this.state.data, {
+          headers: { 'Authorization': `Bearer ${token}` }
+        })
+      })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
