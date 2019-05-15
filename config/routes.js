@@ -11,6 +11,7 @@ router.get('/cabins', cabinsController.index)
 router.get('/cabins/:id', cabinsController.show)
 
 router.get('/users/:id', usersController.show)
+router.put('/users/:id', usersController.update)
 
 router.post('/cabins', secureRoute, cabinsController.create)
 router.put('/cabins/:id', secureRoute, cabinsController.update)

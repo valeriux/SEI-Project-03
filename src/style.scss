@@ -2,14 +2,70 @@ body{
     font-family: 'Arima Madurai', cursive;
 }
 
+.user-background {
+  min-height: 800px;
+}
+
+.profile {
+  max-width: 800px;
+}
+
+
+.columns-profile {
+  height: 250px;
+}
+
+.edit-form {
+  display: flex;
+}
+
+.img-profile {
+  justify-content: center;
+  display: flex;
+}
+
+.section1 {
+    margin-top: 40px;
+    margin-left: 500px;
+}
+
+input {
+  height: 100px;
+  padding: 5px 9px;
+  border-radius: 4px;
+}
+
+.input {
+    width: 550px;
+  }
+
+
+
+.edit-container {
+  max-width: 800px;
+  margin: auto;
+
+  .upload-photo {
+    height: 36px;
+    border-radius: 4px;
+    padding: 0 10px;
+  }
+
+  .genders-container {
+    display: flex;
+
+    .field {
+      padding-right: 50px;
+    }
+  }
+}
+
+
 .logo{
   max-width: 80px;
   padding:20px;
 }
 
-.show{
-  padding-top: 5px;
-}
 
 .hometitle1{
   font-size: 72px;
@@ -25,33 +81,6 @@ body{
   color: #FFFFFF;
 }
 
-
-.section {
-      margin-top: 10px;
-      color: black
-}
-
-.user-background {
-  min-height: 800px;
-}
-
-.profile {
-  max-width: 800px;
-}
-
-.columns-profile {
-  height: 250px;
-}
-
-.img-profile {
-  border-radius: 10%;
-  justify-content: center;
-  display: flex;
-}
-
-.marker {
-  width: 30px;
-}
 
 @import url('https://fonts.googleapis.com/css?family=Arima+Madurai:300');
 
