@@ -1,6 +1,17 @@
 import React from 'react'
 import Auth from '../lib/Auth'
 import axios from 'axios'
+import ReactFilestack from 'filestack-react'
+
+const choices = {
+  accept: 'image/*',
+  transformations: {
+    rotate: true,
+    crop: true,
+    circle: true
+  }
+}
+
 class CabinEdit extends React.Component {
   constructor() {
     super()
@@ -10,10 +21,12 @@ class CabinEdit extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
+
   componentDidMount() {
     axios.get(`api/cabins/${this.props.match.params.id}`)
-      .then(res => this.setState({data: res.data}))
+      .then(res => this.setState({ data: res.data }))
   }
   handleChange(e) {
     const data = {...this.state.data, [e.target.name]: e.target.value} //existing data + the bit the user is typing
@@ -22,23 +35,19 @@ class CabinEdit extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const token = Auth.getToken()
-
-    axios.get(`https://api.postcodes.io/postcodes?q=${this.state.data.postcode}`)
-      .then(res => {
-        // console.log(res)
-        const lat = res.data.result[0].latitude
-        const long = res.data.result[0].longitude
-        const data = {...this.state.data, longitude: long, latitude: lat}
-        this.setState({ data })
-      })
-      .then(() => {
-        axios.put(`api/cabins/${this.state.data._id}`, this.state.data, {
-          headers: { 'Authorization': `Bearer ${token}` }
-        })
-      })
+    axios.put(`/api/cabins/${this.state.data._id}`, this.state.data, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
+
+  handleUploadedImages(result) {
+    console.log(this.state.data)
+    const data = { ...this.state.data, image: result.filesUploaded[0].url }
+    this.setState({ data })
+  }
+
   render() {
     return (
       <section className="section">
@@ -52,23 +61,30 @@ class CabinEdit extends React.Component {
                     <input
                       className="input"
                       name="title"
+                      value={this.state.data.title || ''}
                       placeholder="eg: Sea View Sanctuary"
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 {this.state.errors.title && <div className="help is-danger">{this.state.errors.title}</div>}
+
+
                 <div className="field">
+
                   <label className="label">Image</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      name="image"
-                      placeholder="eg: https://fkfske.com/images/bollocks.png"
-                      onChange={this.handleChange}
-                    />
-                  </div>
+                  <ReactFilestack
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    buttonText="Upload Photo Cabin"
+                    buttonClass="button"
+                    options={choices}
+                    preload={true}
+                    onSuccess={this.handleUploadedImages}
+                  />
+                  {this.state.data.image && <img src={this.state.data.image} />}
+                  {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
                 </div>
+
                 {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
                 <div className="field">
                   <label className="label">Price</label>
@@ -100,12 +116,24 @@ class CabinEdit extends React.Component {
                     <input
                       className="input"
                       name="address"
-                      placeholder="eg: 1 Seaside Avenue, Hastings, SE1 4NN"
+                      placeholder="eg: 1 Seaside Avenue, Hastings"
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
+                <div className="field">
+                  <label className="label">Postcode</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      name="postcode"
+                      placeholder="eg: SE1 4NN"
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                </div>
+                {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">

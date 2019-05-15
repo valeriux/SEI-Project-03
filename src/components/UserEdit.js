@@ -70,7 +70,7 @@ class UserEdit extends React.Component {
 
               <div className="column is-half-desktop is-two-thirds-tablet">
 
-                <h1 className="title is-3"> Editing user account </h1>
+                <h1 className="title is-3"> Editing my account </h1>
 
                 <div className="field">
 

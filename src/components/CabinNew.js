@@ -1,6 +1,16 @@
 import React from 'react'
 import Auth from '../lib/Auth'
 import axios from 'axios'
+import ReactFilestack from 'filestack-react'
+
+const choices = {
+  accept: 'image/*',
+  transformations: {
+    rotate: true,
+    crop: true,
+    circle: true
+  }
+}
 
 class CabinNew extends React.Component {
   constructor() {
@@ -13,7 +23,14 @@ class CabinNew extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
+
+  componentDidMount() {
+    axios.get(`api/cabins/${this.props.match.params.id}`)
+      .then(res => this.setState({data: res.data}))
+  }
+
 
   handleChange(e) {
     const data = {...this.state.data, [e.target.name]: e.target.value}
@@ -40,8 +57,25 @@ class CabinNew extends React.Component {
             'Authorization': `Bearer ${token}` }
         })
       })
+      .then(() => {
+
+        axios.put(`/api/cabins/${this.props.match.params.id}`, this.state.data)
+          .then(res => {
+            this.props.history.push(`/users/${res.data._id}`)
+          })
+          .catch(err => this.setState({ errors: err.response.data.errors }))
+
+      })
+
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({errors: err.response.data.errors}))
+  }
+
+
+  handleUploadedImages(result) {
+    console.log(this.state.data)
+    const data = { ...this.state.data, image: result.filesUploaded[0].url }
+    this.setState({ data })
   }
 
   render() {
@@ -50,9 +84,6 @@ class CabinNew extends React.Component {
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
-
-
-
               <h1 className="title is-3"> Add a new Cabin</h1>
               <form onSubmit={this.handleSubmit}>
 
@@ -69,17 +100,18 @@ class CabinNew extends React.Component {
                   {this.state.errors.title && <div className="help is-danger">{this.state.errors.title}</div>}
                 </div>
 
-
                 <div className="field">
+
                   <label className="label">Image</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      name="image"
-                      placeholder="eg: https://fkfske.com/images/bollocks.png"
-                      onChange={this.handleChange} />
-                  </div>
+                  <ReactFilestack
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    buttonText="Upload Photo Cabin"
+                    buttonClass="button"
+                    options={choices}
+                    preload={true}
+                    onSuccess={this.handleUploadedImages}
+                  />
+                  {this.state.data.image && <img src={this.state.data.image} />}
                   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
                 </div>
 

@@ -36,6 +36,12 @@ userSchema.virtual('conversations', {
   ref: 'Conversation'
 })
 
+userSchema.virtual('cabins', {
+  localField: '_id',
+  foreignField: 'createdBy',
+  ref: 'Cabin'
+})
+
 userSchema.virtual('passwordConfirmation')
   .set(function setPasswordConfirmation(plaintext) {
     this._passwordConfirmation = plaintext

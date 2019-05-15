@@ -59,13 +59,6 @@ input {
     padding: 0 10px;
   }
 
-  .genders-container {
-    display: flex;
-
-    .field {
-      padding-right: 50px;
-    }
-  }
 }
 
 
@@ -268,6 +261,9 @@ h1 {
 	100% {
 		transform: translateY(0vh) translateX(110vw) scale(0.45);
 	}
+
+
+
 
 // // **** UNEDITED MESSENGER CSS FOLLOWS ****
 }

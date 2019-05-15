@@ -17,6 +17,8 @@ router.get('/conversations/:id', conversationsController.show)
 router.post('/conversations', secureRoute, conversationsController.create)
 router.post('/conversations/:id/messages', secureRoute, conversationsController.messageCreate)
 // -------
+
+router.get('/users/', usersController.index)
 router.get('/users/:id', usersController.show)
 router.put('/users/:id', usersController.update)
 

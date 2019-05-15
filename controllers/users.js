@@ -3,13 +3,14 @@ const User = require('../models/User')
 function indexRoute(req, res, next) {
   //get all the users from the database
   User.find()
+    .populate('cabins')
     .then(users => res.json(users)) //send as JSON
     .catch(next) //catch any errors
 }
 
 function showRoute(req, res, next) {
   User.findById(req.params.id)
-    .populate('conversations')
+    .populate('conversations cabins')
     .then(user => res.json(user))
     .catch(next)
 }

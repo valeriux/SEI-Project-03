@@ -64,6 +64,12 @@ class CabinShow extends React.Component{
                 <h2 className="title is-6">Description: {state.description}</h2>
                 <hr />
               </div>
+
+              <div className="column is-one-half">
+                <h2 className="title is-6">Created By: {state.createdBy.username}</h2>
+                <hr />
+              </div>
+
               <div className="level-right">
                 <Link to={`/cabins/${state._id}/edit`} className="button is-primary">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
