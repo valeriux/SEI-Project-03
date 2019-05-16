@@ -2,8 +2,10 @@ const mongoose = require('mongoose')
 const Cabin = require('./models/Cabin')
 const User = require('./models/User')
 
+const { dbUri } = require('./config/environment')
+
 // creating two users in our userSchema to test the comment/message system
-mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
+mongoose.connect(dbUri, (err, db) => {
 
   db.dropDatabase()
 

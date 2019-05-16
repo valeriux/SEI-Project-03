@@ -32,7 +32,7 @@ class IndexMap extends React.Component {
       return (
         <div className="location">
           <Map
-            style='mapbox://styles/mapbox/streets-v9'
+            style='mapbox://styles/mapbox/streets-v8'
             center={[-0.25, 51.1010]}
             zoom={[8]}
             containerStyle={{
