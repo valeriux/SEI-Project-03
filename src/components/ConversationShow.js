@@ -61,10 +61,7 @@ class ConversationShow extends React.Component {
 
             <form className="" onSubmit={this.handleSubmit}>
               <article className="media">
-                <figure className="media-left">
-                  <p className="image is-64x64">
-                  </p>
-                </figure>
+
                 <div className="media-content">
                   <div className="field">
                     <p className="control">

@@ -66,7 +66,7 @@ class UserShow extends React.Component {
           <div className="message-chain">
             {this.state.user.conversations.map(conversation =>
               <section key={conversation._id} className="section">
-                <Link to={`/conversations/${conversation._id}`} className="button is-info">
+                <Link to={`/conversations/${conversation._id}`} className="tab button is-info">
                   <div className="column is-one-quarter-desktop is-half-tablet">
                     <figure className="image">
                       <img src={conversation.cabin.image} />
