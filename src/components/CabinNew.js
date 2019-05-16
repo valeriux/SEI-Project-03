@@ -18,19 +18,14 @@ class CabinNew extends React.Component {
 
     this.state = {
       data: {},
-      errors: {}
+      errors: {},
+      file: null
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
-
-  componentDidMount() {
-    axios.get(`api/cabins/${this.props.match.params.id}`)
-      .then(res => this.setState({data: res.data}))
-  }
-
 
   handleChange(e) {
     const data = {...this.state.data, [e.target.name]: e.target.value}
@@ -40,37 +35,14 @@ class CabinNew extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const token = Auth.getToken()
-
-    axios.get(`https://api.postcodes.io/postcodes?q=${this.state.data.postcode}`)
-      .then(res => {
-        // console.log(res)
-        const lat = res.data.result[0].latitude
-        const long = res.data.result[0].longitude
-        const data = {...this.state.data, longitude: long, latitude: lat}
-        this.setState({ data })
-      })
-      .then(() => {
-        console.log(this.state.data)
-        axios.post('api/cabins', this.state.data, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` }
-        })
-      })
-      .then(() => {
-
-        axios.put(`/api/cabins/${this.props.match.params.id}`, this.state.data)
-          .then(res => {
-            this.props.history.push(`/users/${res.data._id}`)
-          })
-          .catch(err => this.setState({ errors: err.response.data.errors }))
-
-      })
-
+    axios.post('/api/cabins', this.state.data, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` }
+    })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({errors: err.response.data.errors}))
   }
-
 
   handleUploadedImages(result) {
     console.log(this.state.data)
@@ -78,12 +50,16 @@ class CabinNew extends React.Component {
     this.setState({ data })
   }
 
+
   render() {
     return(
       <section className="section">
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-half-desktop is-two-thirds-tablet">
+
+
+
               <h1 className="title is-3"> Add a new Cabin</h1>
               <form onSubmit={this.handleSubmit}>
 
@@ -99,6 +75,7 @@ class CabinNew extends React.Component {
                   </div>
                   {this.state.errors.title && <div className="help is-danger">{this.state.errors.title}</div>}
                 </div>
+
 
                 <div className="field">
 
@@ -163,13 +140,14 @@ class CabinNew extends React.Component {
                   <div className="control">
                     <input
                       className="input"
-                      type="text"
                       name="postcode"
-                      placeholder="SE1 4NN"
-                      onChange={this.handleChange} />
+                      placeholder="eg: SE1 4NN"
+                      value={this.state.data.postcode || ''}
+                      onChange={this.handleChange}
+                    />
                   </div>
-                  {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
                 </div>
+                {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
 
 
 

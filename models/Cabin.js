@@ -20,7 +20,6 @@ const cabinSchema = new mongoose.Schema({
 cabinSchema.plugin(uniqueValidator)
 
 cabinSchema.pre('validate', function getLatLng(next) {
-  console.log(this.postcode)
   rp({
     url: `https://api.postcodes.io/postcodes?q=${this.postcode}`,
     method: 'GET',

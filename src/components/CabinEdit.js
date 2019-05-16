@@ -15,19 +15,17 @@ const choices = {
 class CabinEdit extends React.Component {
   constructor() {
     super()
+
     this.state = {
       data: {},
-      errors: {}
+      errors: {},
+      file: null
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
 
-  componentDidMount() {
-    axios.get(`api/cabins/${this.props.match.params.id}`)
-      .then(res => this.setState({ data: res.data }))
-  }
   handleChange(e) {
     const data = {...this.state.data, [e.target.name]: e.target.value} //existing data + the bit the user is typing
     this.setState({ data })
@@ -35,12 +33,19 @@ class CabinEdit extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const token = Auth.getToken()
+    
     axios.put(`/api/cabins/${this.state.data._id}`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({ errors: err.response.data.errors }))
   }
+
+  componentDidMount() {
+    axios.get(`api/cabins/${this.props.match.params.id}`)
+      .then(res => this.setState({ data: res.data }))
+  }
+
 
   handleUploadedImages(result) {
     console.log(this.state.data)
@@ -93,6 +98,7 @@ class CabinEdit extends React.Component {
                       className="input"
                       name="price"
                       placeholder="eg: £200"
+                      value={this.state.data.price || ''}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -105,6 +111,7 @@ class CabinEdit extends React.Component {
                       className="input"
                       name="sleeps"
                       placeholder="eg: 4"
+                      value={this.state.data.sleeps || ''}
                       onChange={this.handleChange}
                     />
                   </div>
@@ -117,11 +124,13 @@ class CabinEdit extends React.Component {
                       className="input"
                       name="address"
                       placeholder="eg: 1 Seaside Avenue, Hastings"
+                      value={this.state.data.address || ''}
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
+
                 <div className="field">
                   <label className="label">Postcode</label>
                   <div className="control">
@@ -129,11 +138,15 @@ class CabinEdit extends React.Component {
                       className="input"
                       name="postcode"
                       placeholder="eg: SE1 4NN"
+                      value={this.state.data.postcode || ''}
                       onChange={this.handleChange}
                     />
                   </div>
                 </div>
                 {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
+
+
+
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">
@@ -142,6 +155,7 @@ class CabinEdit extends React.Component {
                       type="textarea"
                       name="description"
                       placeholder="eg: A tranquil lakeside cabin, just moments from the unspoilt golden sands of the Sussex coast."
+                      value={this.state.data.description || ''}
                       onChange={this.handleChange} />
                   </div>
                   {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
@@ -153,6 +167,7 @@ class CabinEdit extends React.Component {
                       className="input"
                       name="email"
                       placeholder="eg: aiman@example.co.uk"
+                      value={this.state.data.email || ''}
                       onChange={this.handleChange}
                     />
                   </div>

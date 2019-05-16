@@ -23,7 +23,7 @@ class CabinsIndex extends React.Component {
       <section className="section">
         <div className="container">
           <IndexMap cabins={this.state.data}/>
-          <div className="columns is-multiline">
+          <div className="columns is-multiline image is-480x480">
             {this.state.data.map(cabin =>
               <div key={cabin._id} className="column is-one-third-desktop is-one-third-tablet">
                 <Link to ={`/cabins/${cabin._id}`}>

@@ -30,9 +30,9 @@ class UserShow extends React.Component {
     return (
       <section className="section user-background">
 
-        <div className="container profile">
-          <div className="columns is-multiline columns-profile ">
-            <div className="column is-one-third-desktop img-profile">
+        <div className="container userProfile">
+          <div className="columns is-multiline columns-userShow">
+            <div className="column is-one-third-desktop img-userProfile">
               <figure className="image is-128x128 has-text-centered">
                 <img className="" src={this.state.user.photo}alt={this.state.user.username} />
               </figure>
@@ -41,25 +41,24 @@ class UserShow extends React.Component {
             <div className="column is-two-thirds-desktop">
               <p className="subtitle is-3">Welcome back {this.state.user.username}</p>
               <p className="subtitle">Email: {this.state.user.email}</p>
-
             </div>
           </div>
+
           <div className="columns is-multiline">
             <div className="column is-full-desktop">
               <p className="subtitle is-3">Bio</p>
+
             </div>
 
             <div className="column is-desktop">
               <p className="subtitle">{this.state.user.bio}</p>
-
-              {/*button for editing profiles*/}
+              {/*button for editing userProfiles*/}
               {this.canModify() &&
               <div className>
-                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit your profile</Link>
+                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit your userProfile</Link>
               </div>
               }
             </div>
-
 
             <div className="container">
               <div className="columns is-multiline">
