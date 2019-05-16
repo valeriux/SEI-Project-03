@@ -9,7 +9,12 @@ function indexRoute(req, res, next) {
 
 function showRoute(req, res, next) {
   User.findById(req.params.id)
-    .populate('conversations')
+    .populate({ //populating the conversations first to reveal the cabin and between ids because they're inside the 'conversations'
+      path: 'conversations',
+      populate: {
+        path: 'between cabin'
+      }
+    })
     .then(user => res.json(user))
     .catch(next)
 }

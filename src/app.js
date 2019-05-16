@@ -7,21 +7,22 @@ import './style.scss'
 
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import CabinShow from './components/CabinShow'
-import CabinsIndex from './components/CabinsIndex'
 import Register from './components/Register'
 import Login from './components/Login'
-import CabinNew from './components/CabinNew'
-import CabinEdit from './components/CabinEdit'
-
-import UserShow from './components/UserShow'
-import UserEdit from './components/UserEdit'
-
-import ConversationShow from './components/ConversationShow'
-
 import SecureRoute from './components/SecureRoute'
 
+//***Restful****
+import CabinNew from './components/CabinNew'
+import CabinEdit from './components/CabinEdit'
+import CabinShow from './components/CabinShow'
+import CabinsIndex from './components/CabinsIndex'
+import UserShow from './components/UserShow'
+import UserEdit from './components/UserEdit'
+import ConversationShow from './components/ConversationShow'
 
+
+
+// run top down, routes give component histories, Navbar doesn't have history
 class App extends React.Component {
   render() {
     return (
@@ -29,7 +30,7 @@ class App extends React.Component {
         <main>
           <Navbar/>
           <Switch>
-            <Route path="/conversation/:id" component={ConversationShow} />
+            <Route path="/conversations/:id" component={ConversationShow} />
 
             <SecureRoute path="/cabins/:id/Edit" component={CabinEdit}/>
             <SecureRoute path="/cabins/new" component={CabinNew}/>
