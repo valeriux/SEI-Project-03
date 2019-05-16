@@ -77,7 +77,7 @@ class CabinNew extends React.Component {
                       className="input"
                       type="text"
                       name="image"
-                      placeholder="eg: https://fkfske.com/images/bollocks.png"
+                      placeholder="eg: image.png"
                       onChange={this.handleChange} />
                   </div>
                   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
@@ -161,7 +161,7 @@ class CabinNew extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: aiman@example.co.uk"
+                      placeholder="eg: example@example.co.uk"
                       onChange={this.handleChange}/>
                   </div>
                   {this.state.errors.email && <div className="help is-danger">

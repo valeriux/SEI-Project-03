@@ -64,7 +64,7 @@ class CabinEdit extends React.Component {
                     <input
                       className="input"
                       name="image"
-                      placeholder="eg: https://fkfske.com/images/bollocks.png"
+                      placeholder="eg: image.png"
                       onChange={this.handleChange}
                     />
                   </div>
@@ -106,6 +106,20 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.address && <div className="help is-danger">{this.state.errors.address}</div>}
+
+                <div className="field">
+                  <label className="label">Postcode</label>
+                  <div className="control">
+                    <input
+                      className="input"
+                      type="text"
+                      name="postcode"
+                      placeholder="SE1 4NN"
+                      onChange={this.handleChange} />
+                  </div>
+                  {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
+                </div>
+
                 <div className="field">
                   <label className="label">Description</label>
                   <div className="control">
@@ -116,6 +130,7 @@ class CabinEdit extends React.Component {
                       placeholder="eg: A tranquil lakeside cabin, just moments from the unspoilt golden sands of the Sussex coast."
                       onChange={this.handleChange} />
                   </div>
+
                   {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
                 </div>
                 <div className="field">
@@ -124,7 +139,7 @@ class CabinEdit extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: aiman@example.co.uk"
+                      placeholder="eg: example@example.co.uk"
                       onChange={this.handleChange}
                     />
                   </div>

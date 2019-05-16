@@ -10,7 +10,6 @@ body{
   max-width: 800px;
 }
 
-
 .columns-profile {
   height: 250px;
 }
@@ -124,6 +123,16 @@ h1 {
   padding: 2rem;
 }
 
+
+
+
+
+
+
+
+
+
+// // **** Bird Animation ****
 
 .bird {
 	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells.svg);
@@ -269,7 +278,9 @@ h1 {
 		transform: translateY(0vh) translateX(110vw) scale(0.45);
 	}
 
-// // **** UNEDITED MESSENGER CSS FOLLOWS ****
+
+
+// // **** Messenger CSS ****
 }
 html, body {
     height: 100%;

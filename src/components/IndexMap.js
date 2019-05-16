@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import ReactMapboxGl, { Marker, Popup } from 'react-mapbox-gl'
 
 const Map = ReactMapboxGl({
@@ -11,8 +12,15 @@ class IndexMap extends React.Component {
     super(props)
 
     this.state = {
-      data: null
+      pin: {},
+      pinClick: false
     }
+
+  }
+
+  handleMarkerClick(cabin) {
+    if(cabin === this.state.selectedCabin)  this.setState({ selectedCabin: null })
+    else this.setState({ selectedCabin: cabin })
   }
 
 
@@ -25,7 +33,7 @@ class IndexMap extends React.Component {
         <div className="location">
           <Map
             style='mapbox://styles/mapbox/streets-v9'
-            center={[0, 51.1010]}
+            center={[-0.25, 51.1010]}
             zoom={[8]}
             containerStyle={{
               height: '80vh',
@@ -37,25 +45,29 @@ class IndexMap extends React.Component {
               <Marker className="marker"
                 key={cabin._id}
                 coordinates={[cabin.longitude, cabin.latitude]}
-                anchor="bottom">
+                anchor="bottom"
+                onClick={() => this.handleMarkerClick(cabin)}
+              >
                 <img src={'../images/pin.png'}/>
               </Marker>
             )}
 
-            {this.props.cabins.map(cabin =>
-              <Popup className="popup"
-                key={cabin._id}
-                coordinates={[cabin.longitude, cabin.latitude]}
-                offset={{
-                  'bottom-left': [12, -38],  'bottom': [0, -38], 'bottom-right': [-12, -38]
-                }}>
-                <div>
-                  <h3>{cabin.title}</h3>
-                  <img className="popupimage"src={cabin.image} alt={cabin.name}/>
-                  <h3> Price: {cabin.price} | Sleeps: {cabin.sleeps}</h3>
-                </div>
-              </Popup>
-            )}
+            {this.state.selectedCabin &&
+              <Link to ={`/cabins/${this.state.selectedCabin._id}`} key={this.state.selectedCabin._id}>
+                <Popup className="popup"
+                  coordinates={[this.state.selectedCabin.longitude, this.state.selectedCabin.latitude]}
+                  offset={{
+                    'bottom-left': [12, -38],  'bottom': [0, -38], 'bottom-right': [-12, -38]
+                  }}>
+
+                  <div>
+                    <h3>{this.state.selectedCabin.title}</h3>
+                    <img className="popupimage"src={this.state.selectedCabin.image} alt={this.state.selectedCabin.name}/>
+                    <h3> Price: {this.state.selectedCabin.price} | Sleeps: {this.state.selectedCabin.sleeps}</h3>
+                  </div>
+                </Popup>
+              </Link>
+            }
 
           </Map>
         </div>
