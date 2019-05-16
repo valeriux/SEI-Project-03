@@ -21,9 +21,11 @@ class UserShow extends React.Component {
   canModify() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id
   }
-  // function to determine the other user to the one actually viewing their messages in order to render the correct username as there are two users with username in 'between'
+  // function to determine the other user to the one actually viewing their messages in order to render the correct username on the tab/notification as there are two users with username in 'between'
   getCorrespondent(between){
-    return between.find(user => user._id !== Auth.getPayload().sub) || between[0]
+    // find the user in between with the user-id that is different to the payload of the subject?
+    console.log(between)
+    return between.find(user => user._id !== Auth.getPayload().sub)// ||user[0]
   }
 
 
@@ -65,15 +67,16 @@ class UserShow extends React.Component {
             {this.state.user.conversations.map(conversation =>
               <section key={conversation._id} className="section">
                 <Link to={`/conversations/${conversation._id}`} className="button is-info">
-
                   <div className="column is-one-quarter-desktop is-half-tablet">
                     <figure className="image">
                       <img src={conversation.cabin.image} />
                     </figure>
                   </div>
+                  {/*calls function above to get the username of the person you are corresponding with differentiating the 2 user ids in the conversation schema*/}
                   {this.getCorrespondent(conversation.between).username}
-
                 </Link>
+
+
               </section>
             )}
           </div>
@@ -85,24 +88,3 @@ class UserShow extends React.Component {
   }
 }
 export default UserShow
-// Presumably don't want to <ConversationShow {...conversations}> as don't want the whole history rendering, just the link to it?
-// <button onClick={this.handleClick}>Conversation</button>
-// populate the between to get users photo
-// Link rather than a-tags which refresh page because of hyperlink
-
-
-
-// <section className="section">
-//   <div className="container">
-//     <div className="level">
-//       <div className="level">
-//         <div className="column is-one-third-desktop is-full-tablet">
-//           <figure className="image">
-//             <img src={this.state.user.conversation.cabin.image} alt={this.state.conversation.cabin.title} />
-//           </figure>
-//         </div>
-//         <h1 className="title is-1">{this.state.conversation.cabin.title}</h1>
-//       </div>
-//     </div>
-//   </div>
-// </section>

@@ -32,7 +32,6 @@ class ConversationShow extends React.Component {
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
   }
-  // Need to add Cabin Photo title to top of page.
 
   // what the component adds to the DOM (visual), the 'like HTML' elements. Render does CDM the second time its run.
   render() {
@@ -44,7 +43,7 @@ class ConversationShow extends React.Component {
           <div className="level">
             <div className="level">
               <div className="column is-one-third-desktop is-full-tablet">
-                <figure className="image">
+                <figure className="image is 32x32px">
                   <img src={this.state.conversation.cabin.image} alt={this.state.conversation.cabin.title} />
                 </figure>
               </div>
