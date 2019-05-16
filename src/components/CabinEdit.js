@@ -33,7 +33,7 @@ class CabinEdit extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const token = Auth.getToken()
-    
+
     axios.put(`/api/cabins/${this.state.data._id}`, this.state.data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
@@ -158,6 +158,7 @@ class CabinEdit extends React.Component {
                       value={this.state.data.description || ''}
                       onChange={this.handleChange} />
                   </div>
+
                   {this.state.errors.description && <div className="help is-danger">{this.state.errors.description}</div>}
                 </div>
                 <div className="field">
@@ -166,7 +167,7 @@ class CabinEdit extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: aiman@example.co.uk"
+                      placeholder="eg: valeria@example.co.uk"
                       value={this.state.data.email || ''}
                       onChange={this.handleChange}
                     />

@@ -171,7 +171,7 @@ class CabinNew extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: aiman@example.co.uk"
+                      placeholder="eg: example@example.co.uk"
                       onChange={this.handleChange}/>
                   </div>
                   {this.state.errors.email && <div className="help is-danger">

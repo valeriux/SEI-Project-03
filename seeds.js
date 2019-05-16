@@ -17,12 +17,12 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
         photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Welsh_Dragon_%28Y_Ddraig_Goch%29.svg/1200px-Welsh_Dragon_%28Y_Ddraig_Goch%29.svg.png',
         bio: 'I am Haylins, I like the pretty things with the views. Hmmm, shiny'
       }, {
-        username: 'Aimen',
-        email: 'aimen@hotmail.com',
+        username: 'Aiman',
+        email: 'aiman@hotmail.com',
         password: 'pass',
         passwordConfirmation: 'pass',
         photo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Welsh_Dragon_%28Y_Ddraig_Goch%29.svg/1200px-Welsh_Dragon_%28Y_Ddraig_Goch%29.svg.png',
-        bio: 'I am Aimen, I like what Charlotte likes'
+        bio: 'I am Aiman, I like what Charlotte likes'
       }])
     })
     .then(users => {
@@ -34,10 +34,10 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 4,
           address: '2 Fletching Lane, Uckfield, East Sussex',
           postcode: 'TN22 3SS',
-          longitude: -0.19607,
+          longitude: -0.10607,
           latitude: 50.92269,
           description: 'The Haven Pod is a new and unique place to stay. Floating peacefully on the water, the eco-friendly Haven Pod takes "waterfront views" to a new level.',
-          email: 'nicebackend@aiman.co.uk',
+          email: 'example@example.co.uk',
           createdBy: users[0]
         },
         {
@@ -47,7 +47,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 2,
           address: '405 S Coast Rd, Telscombe Cliffs, Peacehaven',
           postcode: 'TN22 3SS',
-          longitude: -0.19607,
+          longitude: -0.18607,
           latitude: 50.92269,
           description: 'Wake up to panoramic views overlooking the lake, enjoy some breakfast on the decking watching the feeding fish or letting the world go by before setting about your day, its the perfect spot for fishing, walking, cycling, sightseeing or shopping!',
           email: 'valeria@ga.co.uk',
@@ -76,7 +76,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           longitude: -0.00765,
           latitude: 50.79247,
           description: 'Stylish and chic coastal chalet perfect for romantic getaways. Beautiful sea views to be enjoyed from every room as well as from an impressive decked area. Luxuriously furnished, The Dell is idyllic both inside and out',
-          email: 'tormund@giantbitty.co.uk',
+          email: 'example@gmail.co.uk',
           createdBy: users[0]
         },
         {
@@ -99,8 +99,8 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 4,
           address: 'Climping Beach Hut 1, Climping',
           postcode: 'BN17 5DL',
-          longitude: -0.54599,
-          latitude: 50.80604,
+          longitude: -0.0731,
+          latitude: 50.8310,
           description: 'Chill back vibes will surround you in this beautiful, modern, luxury take on a beach hut. Enjoy glorious sea-side walks, lapping waves and a whole host of amenities.',
           email: 'ga@generalasembly.co.uk',
           createdBy: users[0]
@@ -115,7 +115,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           longitude: 0.21111,
           latitude: 50.86331,
           description: 'A tranquil lakeside cabin, just moments from the unspoilt golden sands of the Sussex coast. Stylishly revived, the cabin has a sophisticated and stylish edge with a subtle coastal feel and is suitabale for couples and families alike.',
-          email: 'rickymartin@howdidntyouknow.com',
+          email: 'rickymartin@hello.com',
           createdBy: users[0]
         },
         {
@@ -128,7 +128,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           longitude: 0.48133,
           latitude: 50.83874,
           description: 'Escape the hustle and bustle and relax with panormic views. Open plan living areas complete with wood burning stoves, for cosy nights in.Double bedroom with en-suite bathroom has a stylish decor and super-comfy beds',
-          email: 'jonsnow@hotaunties.com',
+          email: 'jonsnow@got.com',
           createdBy: users[0]
         },
         {
@@ -138,10 +138,10 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 3,
           address: '1 Clifftops Drive, Skyeville',
           postcode: 'BN24 6HS',
-          longitude: 0.34813,
-          latitude: 50.81116,
+          longitude: -0.0037,
+          latitude: 50.8390,
           description: 'A delightfully remote escape  with breath-taking coastal views. Enjoy luxury all year around in a peaceful location with no disturbances',
-          email: 'aimandidit@noididnt.com',
+          email: 'example@rhul.live.com',
           createdBy: users[0]
         },
         {
@@ -151,8 +151,8 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 3,
           address: '10 Swimmers Lane, Arundel',
           postcode: 'BN18 9AU',
-          longitude: 0.34813,
-          latitude: 50.81116,
+          longitude: 0.44813,
+          latitude: 50.87116,
           description: 'Explore woodlands and freshwater swimming from this sustainable wood cabin. Fully equipped to cater for all your needs you can escape to tranquility while still having small town amenities and great pubs within a ten minute walk',
           email: 'oggyoggyoggy@oioioi.com',
           createdBy: users[0]
@@ -206,7 +206,7 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           longitude: 0.26131,
           latitude: 51.05346,
           description: 'You\'ll find The Shepherd\'s Hut Retreat in an idyllic rural location, surrounded by organic farmland. Beautifully positioned between the trees and on the water\'s edge, each hut features a private bathroom, a well-equipped kitchen and WiFi. You\'ll also have your own decking and fire pit to make the most of those amazing views.',
-          email: 'dontforget@topopulate.com',
+          email: 'dontforgetme@populate.com',
           createdBy: users[0]
         },
         {
@@ -216,10 +216,10 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           sleeps: 2,
           address: '10 Crewkerne Lane, Trumpington, Pevensey',
           postcode: 'BN24 6HS',
-          longitude: 0.34813,
-          latitude: 50.81116,
+          longitude: 0.7373,
+          latitude: 50.9497,
           description: 'Are you looking for an entirely different kind of fresh escape?  How about one that allows you to enjoy the blissful peace and lush tranquillity of nature at its absolute finest, all the while living in the lap of indulgent luxury? You can luxuriate in the company of your loved one, beside a gently glowing wood-burning stove. Head outside to the radial deck by evening, with snug seating and a warming firepit to spend endless evenings beside, whiling away your holiday hours by chatting fondly about life, love and everything in between! StarBed Hideaways is the embodiment of your holiday dreams.',
-          email: 'dontforget@topopulate.com',
+          email: 'dontforgetme@tomato.com',
           createdBy: users[0]
         },
         {
@@ -230,9 +230,22 @@ mongoose.connect('mongodb://localhost:27017/cabins-db', (err, db) => {
           address: 'Fisherman\'s Hut, Twyford Lane, Haywards Heath',
           postcode: 'RH17 7DJ',
           longitude: -0.00817,
-          latitude: 51.06104,
+          latitude: 51.00104,
           description: 'An inspirational, handcrafted cabin, hidden off the beaten track. Gorgeous location on the edge of your own private lake. Sit on the deck with your morning coffee and bask in the wonders of nature. The cabin make use of solar power, wood burners and composting techniques making it fully eco friendly.',
-          email: 'dontforget@topopulate.com',
+          email: 'example@hotmail.com',
+          createdBy: users[0]
+        },
+        {
+          title: 'title example',
+          image: 'image url',
+          price: 1,
+          sleeps: 1,
+          address: 'address example',
+          postcode: 'postcode',
+          longitude: -0.00817,
+          latitude: 51.00104,
+          description: 'example',
+          email: 'example@example.com',
           createdBy: users[0]
         }
       ])
