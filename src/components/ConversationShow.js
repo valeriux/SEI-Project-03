@@ -18,7 +18,7 @@ class ConversationShow extends React.Component {
     axios.get(`/api/conversations/${this.props.match.params.id}`)
       .then(res => this.setState({ conversation: res.data }))
   }
-
+  // Eventhandlers, taking the input message and adding the new message into the data, then adding the next one onto that chain of stored messages
   handleSubmit(e) {
     e.preventDefault()
     axios.post(`/api/conversations/${this.props.match.params.id}/messages`, this.state.data, {
@@ -28,7 +28,7 @@ class ConversationShow extends React.Component {
   }
 
   handleChange(e) {
-    // state data + message
+    // storing the data, plus the last message to create the chain
     const data = { ...this.state.data, [e.target.name]: e.target.value }
     this.setState({ data })
   }

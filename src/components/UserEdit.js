@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 import ReactFilestack from 'filestack-react'
 
-
 const choices = {
   accept: 'image/*',
   transformations: {
@@ -50,7 +49,7 @@ class UserEdit extends React.Component {
 
   componentDidMount() {
     axios.get(`api/users/${this.props.match.params.id}`)
-      .then(res => this.setState({ user: res.data }))
+      .then(res => this.setState({ data: res.data }))
 
     console.log(this.state.data)
   }
@@ -62,21 +61,23 @@ class UserEdit extends React.Component {
   }
 
   render() {
+    console.log(this.state.data, 'this.state.data')
     return (
       <section className="section1">
-        <div className="container edit-container">
+        <div className="container userEdit-container">
           <div className="columns edit-columns is-multiline is-mobile">
-            <form className="edit-form" onSubmit={this.handleSubmit}>
+            <form className="userEdit-form" onSubmit={this.handleSubmit}>
 
               <div className="column is-half-desktop is-two-thirds-tablet">
 
-                <h1 className="title is-3"> Editing user account </h1>
+                <h1 className="title is-3 editTitle"> Editing my account </h1>
 
                 <div className="field">
 
                   <label className="label">Profile Photo</label>
                   <ReactFilestack
-                    apikey="AGZsOmkNRMecOjL4JyRSDz"
+                    className="image is-128x128"
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
                     buttonText="Upload your Photo"
                     buttonClass="button"
                     options={choices}
@@ -94,14 +95,13 @@ class UserEdit extends React.Component {
                       className="input"
                       type="text"
                       name="username"
-                      placeholder="eg: valeriux"
+                      value={this.state.data.username || ''}
+                      placeholder="eg. valeriux..."
                       onChange={this.handleChange}
-                      value={this.state.data.username}
+
                     />
                   </div>
                 </div>
-
-
 
                 <div className="field">
                   <label className="label">Biography</label>
@@ -110,9 +110,9 @@ class UserEdit extends React.Component {
                       className="input"
                       type="text"
                       name="bio"
+                      value={this.state.data.bio || ''}
                       placeholder="eg. I enjoy when I spent time with my friends..."
                       onChange={this.handleChange}
-                      value={this.state.data.bio}
                     />
                   </div>
                 </div>

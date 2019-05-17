@@ -1,8 +1,16 @@
 import React from 'react'
 import axios from 'axios'
-//import ReactFilestack from 'filestack-react'
+import ReactFilestack from 'filestack-react'
 
 
+const choices = {
+  accept: 'image/*',
+  transformations: {
+    rotate: true,
+    crop: true,
+    circle: true
+  }
+}
 
 class Register extends React.Component {
   constructor() {
@@ -15,6 +23,7 @@ class Register extends React.Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUploadedImages = this.handleUploadedImages.bind(this)
 
   }
 
@@ -28,6 +37,22 @@ class Register extends React.Component {
     axios.post('api/register', this.state.data)
       .then(() => this.props.history.push('/login'))
       .catch(err => this.setState({errors: err.response.data.errors}))
+
+      .then(() => {
+
+        axios.put(`/api/users/${this.props.match.params.id}`, this.state.data)
+          .then(res => {
+            this.props.history.push(`/users/${res.data._id}`)
+          })
+          .catch(err => this.setState({ errors: err.response.data.errors }))
+
+      })
+  }
+
+  handleUploadedImages(result) {
+    console.log(this.state.data)
+    const data = { ...this.state.data, photo: result.filesUploaded[0].url }
+    this.setState({ data })
   }
 
   render() {
@@ -73,11 +98,17 @@ class Register extends React.Component {
 
 
                 <div className="field">
-                  <label className="label">Photo</label>
-                  <div className="control">
-                    <input className="input" name="photo" placeholder="eg: Upload a photo of yourself" onChange={this.handleChange} />
-                  </div>
 
+                  <label className="label">Profile Photo</label>
+                  <ReactFilestack
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    buttonText="Upload your Photo"
+                    buttonClass="button"
+                    options={choices}
+                    preload={true}
+                    onSuccess={this.handleUploadedImages}
+                  />
+                  {this.state.data.photo && <img src={this.state.data.photo} />}
                 </div>
 
 

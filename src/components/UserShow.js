@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import Auth from '../lib/Auth'
+import CabinCard from './CabinCard'
+
 
 class UserShow extends React.Component {
 
@@ -23,7 +25,7 @@ class UserShow extends React.Component {
   }
   // function to determine the other user to the one actually viewing their messages in order to render the correct username on the tab/notification as there are two users with username in 'between'
   getCorrespondent(between){
-    // find the user in between with the user-id that is different to the payload of the subject?
+    // find the user in between array with the user-id that is different to the payload of the subject.
     console.log(between)
     return between.find(user => user._id !== Auth.getPayload().sub)// ||user[0]
   }
@@ -34,55 +36,88 @@ class UserShow extends React.Component {
     console.log(this.state,'this is on usershow page')
     return (
       <section className="section user-background">
-        <div className="container profile">
-          <div className="columns is-multiline columns-profile ">
-            <div className="column is-one-third-desktop img-profile">
+
+        <div className="container userProfile">
+          <div className="columns is-multiline columns-userShow">
+            <div className="column is-one-third-desktop img-userProfile">
               <figure className="image is-128x128 has-text-centered">
                 <img className="" src={this.state.user.photo}alt={this.state.user.username} />
               </figure>
+
             </div>
             <div className="column is-two-thirds-desktop">
               <p className="subtitle is-3">Welcome back {this.state.user.username}</p>
               <p className="subtitle">Email: {this.state.user.email}</p>
             </div>
           </div>
+
           <div className="columns is-multiline">
             <div className="column is-full-desktop">
               <p className="subtitle is-3">Bio</p>
+
             </div>
 
             <div className="column is-desktop">
               <p className="subtitle">{this.state.user.bio}</p>
+              {/*button for editing userProfiles*/}
+              {this.canModify() &&
+              <div className>
+                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit your userProfile</Link>
+              </div>
+              }
             </div>
-          </div>
 
-          {this.canModify() &&
+
+            {this.canModify() &&
             <div className="level-right">
               <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit</Link>
             </div>
-          }
+            }
 
-          {/*link to Conversations Show*/}
-          <div className="message-chain">
-            {this.state.user.conversations.map(conversation =>
-              <section key={conversation._id} className="section">
-                <Link to={`/conversations/${conversation._id}`} className="tab button is-info">
-                  <div className="column is-one-quarter-desktop is-half-tablet">
-                    <figure className="image">
-                      <img src={conversation.cabin.image} />
-                    </figure>
+            {/*link to Conversations Show*/}
+            <div className="message-chain">
+              {this.state.user.conversations.map(conversation =>
+                <section key={conversation._id} className="section">
+                  <Link to={`/conversations/${conversation._id}`} className="tab button is-info">
+                    <div className="column is-one-quarter-desktop is-half-tablet">
+                      <figure className="image">
+                        <img src={conversation.cabin.image} />
+                      </figure>
+                    </div>
+                    {/*calls function above to get the username of the person you are corresponding with differentiating the 2 user ids in the conversation schema*/}
+                    {this.getCorrespondent(conversation.between).username}
+                  </Link>
+
+
+                </section>
+              )}
+            </div>
+
+
+            <div className="container">
+              <div className="columns is-multiline">
+                <div className="column is-full-desktop">
+                  <br />
+                  <p className="subtitle is-3">My Cabins</p>
+                </div>
+                {this.state.user.cabins.map(cabin =>
+                  <div key={cabin._id} className="column is-one-third-desktop is-one-third-tablet">
+                    <Link to ={`/cabins/${cabin._id}`}>
+                      <CabinCard {...cabin} />
+                    </Link>
                   </div>
-                  {/*calls function above to get the username of the person you are corresponding with differentiating the 2 user ids in the conversation schema*/}
-                  {this.getCorrespondent(conversation.between).username}
-                </Link>
+                )}
+              </div>
 
 
-              </section>
-            )}
+            </div>
           </div>
 
 
+
+
         </div>
+
       </section>
     )
   }

@@ -19,8 +19,15 @@ function loginRoute(req, res, next) {
     })
     .catch(next)
 }
+// //Added for UserCabinShow.js
+// function currentuserRoute(req, res) {
+//   req.currentUser.populate('_username')
+//     .execPopulate()
+//     .then(user => res.json(user))
+// }
 
 module.exports = {
   register: registerRoute,
   login: loginRoute
+//  currenUser: currentuserRoute // Added for UserCabinShow
 }

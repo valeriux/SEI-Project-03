@@ -32,6 +32,10 @@ class CabinShow extends React.Component{
       .then(() => this.props.history.push('/cabins'))
   }
 
+  canMondify() {
+    return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.cabin.createdBy._id
+  }
+
   startConversation() {
     const token = Auth.getToken()
     const data = {
@@ -47,8 +51,9 @@ class CabinShow extends React.Component{
   }
 
 
+
   render(){
-    console.log(this.state)
+    console.log(this.state, 'this.state. on the show page')
     const state = this.state.cabin
     if (!this.state.cabin) return null
     return (
@@ -79,12 +84,20 @@ class CabinShow extends React.Component{
                 <h2 className="title is-6">Description: {state.description}</h2>
                 <hr />
               </div>
+
+              <div className="column is-one-half">
+                <h2 className="title is-6">Created By: {state.createdBy.username}</h2>
+                <hr />
+              </div>
+
+              {this.canModify() &&
               <div className="level-right">
                 <Link to={`/cabins/${state._id}/edit`} className="button is-primary">Edit</Link>
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
+              }
 
-              {/* Button to take to conversation page for individual cabins*/}
+              {/*Button to take to conversation page for individual cabins*/}
               <div>
                 <button onClick={this.startConversation}>Check Availability</button>
               </div>

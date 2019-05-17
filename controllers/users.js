@@ -3,13 +3,15 @@ const User = require('../models/User')
 function indexRoute(req, res, next) {
   //get all the users from the database
   User.find()
+    .populate('cabins')
     .then(users => res.json(users)) //send as JSON
     .catch(next) //catch any errors
 }
 
 function showRoute(req, res, next) {
   User.findById(req.params.id)
-    .populate({ //populating the conversations first to reveal the cabin and between ids because they're inside the 'conversations'
+
+    .populate({ //populating the conversations first to reveal the cabin and between ids because they're embedded inside 'conversations'
       path: 'conversations',
       populate: {
         path: 'between cabin'

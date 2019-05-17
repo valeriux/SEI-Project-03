@@ -1,6 +1,16 @@
 import React from 'react'
 import Auth from '../lib/Auth'
 import axios from 'axios'
+import ReactFilestack from 'filestack-react'
+
+const choices = {
+  accept: 'image/*',
+  transformations: {
+    rotate: true,
+    crop: true,
+    circle: true
+  }
+}
 
 class CabinNew extends React.Component {
   constructor() {
@@ -8,11 +18,13 @@ class CabinNew extends React.Component {
 
     this.state = {
       data: {},
-      errors: {}
+      errors: {},
+      file: null
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleUploadedImages = this.handleUploadedImages.bind(this)
   }
 
   handleChange(e) {
@@ -23,26 +35,21 @@ class CabinNew extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     const token = Auth.getToken()
-
-    axios.get(`https://api.postcodes.io/postcodes?q=${this.state.data.postcode}`)
-      .then(res => {
-        // console.log(res)
-        const lat = res.data.result[0].latitude
-        const long = res.data.result[0].longitude
-        const data = {...this.state.data, longitude: long, latitude: lat}
-        this.setState({ data })
-      })
-      .then(() => {
-        console.log(this.state.data)
-        axios.post('api/cabins', this.state.data, {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}` }
-        })
-      })
+    axios.post('/api/cabins', this.state.data, {
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}` }
+    })
       .then(() => this.props.history.push('/cabins'))
       .catch(err => this.setState({errors: err.response.data.errors}))
   }
+
+  handleUploadedImages(result) {
+    console.log(this.state.data)
+    const data = { ...this.state.data, image: result.filesUploaded[0].url }
+    this.setState({ data })
+  }
+
 
   render() {
     return(
@@ -71,15 +78,17 @@ class CabinNew extends React.Component {
 
 
                 <div className="field">
+
                   <label className="label">Image</label>
-                  <div className="control">
-                    <input
-                      className="input"
-                      type="text"
-                      name="image"
-                      placeholder="eg: https://fkfske.com/images/bollocks.png"
-                      onChange={this.handleChange} />
-                  </div>
+                  <ReactFilestack
+                    apikey="A0y7LFvTfTXGeE0Xy0f9vz"
+                    buttonText="Upload Photo Cabin"
+                    buttonClass="button"
+                    options={choices}
+                    preload={true}
+                    onSuccess={this.handleUploadedImages}
+                  />
+                  {this.state.data.image && <img src={this.state.data.image} />}
                   {this.state.errors.image && <div className="help is-danger">{this.state.errors.image}</div>}
                 </div>
 
@@ -131,13 +140,14 @@ class CabinNew extends React.Component {
                   <div className="control">
                     <input
                       className="input"
-                      type="text"
                       name="postcode"
-                      placeholder="SE1 4NN"
-                      onChange={this.handleChange} />
+                      placeholder="eg: SE1 4NN"
+                      value={this.state.data.postcode || ''}
+                      onChange={this.handleChange}
+                    />
                   </div>
-                  {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
                 </div>
+                {this.state.errors.postcode && <div className="help is-danger">{this.state.errors.postcode}</div>}
 
 
 
@@ -161,7 +171,7 @@ class CabinNew extends React.Component {
                     <input
                       className="input"
                       name="email"
-                      placeholder="eg: aiman@example.co.uk"
+                      placeholder="eg: example@example.co.uk"
                       onChange={this.handleChange}/>
                   </div>
                   {this.state.errors.email && <div className="help is-danger">
