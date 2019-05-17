@@ -1292,6 +1292,7 @@ body-parser@1.19.0:
   integrity sha512-dhEPs72UPbDnAQJ9ZKMNTP6ptJaionhP5cBb541nXPlW60Jepo9RV/a4fX4XWW9CuFNK22krhrj1+rgzifNCsw==
   dependencies:
     bytes "3.1.0"
+<<<<<<< HEAD
     content-type "~1.0.4"
     debug "2.6.9"
     depd "~1.1.2"
@@ -1308,6 +1309,8 @@ body-parser@^1.19.0:
   integrity sha512-dhEPs72UPbDnAQJ9ZKMNTP6ptJaionhP5cBb541nXPlW60Jepo9RV/a4fX4XWW9CuFNK22krhrj1+rgzifNCsw==
   dependencies:
     bytes "3.1.0"
+=======
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
     content-type "~1.0.4"
     debug "2.6.9"
     depd "~1.1.2"
@@ -3396,6 +3399,7 @@ i@^0.3.6:
   integrity sha1-2WyScyB28HJxG2sQ/X1PZa2O4j0=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 iconv-lite@0.4.23:
   version "0.4.23"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.23.tgz#297871f63be507adcfbfca715d0cd0eed84e9a63"
@@ -3404,6 +3408,9 @@ iconv-lite@0.4.23:
     safer-buffer ">= 2.1.2 < 3"
 
 iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+=======
+iconv-lite@0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 =======
 iconv-lite@0.4.24, iconv-lite@^0.4.4, iconv-lite@~0.4.13:
 >>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
@@ -4356,6 +4363,7 @@ mime@1.6.0, mime@^1.4.1:
 
 mime@^2.4.2:
 <<<<<<< HEAD
+<<<<<<< HEAD
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.2.tgz#ce5229a5e99ffc313abac806b482c10e7ba6ac78"
   integrity sha512-zJBfZDkwRu+j3Pdd2aHsR5GfH2jIWhmL1ZzBoc+X+3JEti2hbArWcyJ+1laC1D2/U/W1a/+Cegj0/OnEU2ybjg==
@@ -4364,6 +4372,11 @@ mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
   integrity sha512-jf84uxzwiuiIVKiOLpfYk7N46TSy8ubTonmneY9vrpHNAnp0QBt2BxWV9dO3/j+BoVAb+a5G6YDPW3M5HOdMWQ==
+=======
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.3.tgz#229687331e86f68924e6cb59e1cdd937f18275fe"
+  integrity sha512-QgrPRJfE+riq5TPZMcHZOtm8c6K/yYrMbKIoRfapfiGLxS8OTeIfRhUGW5LU7MlRa52KOAGCfUNruqLrIBvWZw==
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 =======
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.4.3.tgz#229687331e86f68924e6cb59e1cdd937f18275fe"
@@ -4577,12 +4590,16 @@ murmurhash-js@^1.0.0:
   integrity sha1-sGJ44h/Gw3+lMTcysEEry2rhX1E=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
 nan@2.13.2, nan@^2.12.1, nan@^2.13.2:
+=======
+nan@2.13.2:
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 =======
 nan@2.13.2:
 >>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
@@ -5379,11 +5396,14 @@ punycode@^2.1.0, punycode@^2.1.1:
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 qs@6.5.2, qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
+=======
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 =======
 >>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 qs@6.7.0, qs@^6.5.1:
@@ -5444,6 +5464,7 @@ raw-body@2.4.0:
     bytes "3.1.0"
     http-errors "1.7.2"
     iconv-lite "0.4.24"
+<<<<<<< HEAD
     unpipe "1.0.0"
 
 raw-body@2.4.0:
@@ -5454,6 +5475,8 @@ raw-body@2.4.0:
     bytes "3.1.0"
     http-errors "1.7.2"
     iconv-lite "0.4.24"
+=======
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
     unpipe "1.0.0"
 
 rc@^1.2.7:
@@ -6360,7 +6383,11 @@ static-extend@^0.1.1:
     object-copy "^0.1.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2":
+=======
+"statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 =======
 "statuses@>= 1.4.0 < 2", "statuses@>= 1.5.0 < 2", statuses@~1.5.0:
 >>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
@@ -6783,7 +6810,11 @@ tweetnacl@^0.14.3, tweetnacl@~0.14.0:
   integrity sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 type-is@~1.6.16, type-is@~1.6.17:
+=======
+type-is@~1.6.17, type-is@~1.6.18:
+>>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041
 =======
 type-is@~1.6.17, type-is@~1.6.18:
 >>>>>>> 801ce92cfaab80027d0db70979ed35535dd5f041

@@ -47,6 +47,21 @@ body{
 }
 
 .user-background {
+ min-height: 800px;
+}
+
+.userProfile {
+ max-width: 800px;
+}
+
+.columns-userShow {
+ height: 160px;
+}
+
+//Style for the background image.
+
+
+.user-background {
   min-height: 800px;
 }
 
@@ -89,6 +104,33 @@ body{
 .marker{
   width: 30px;
 }
+
+.userEdit-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.input {
+    width: 550px;
+  }
+
+.editTitle{
+    width: 550px;
+}
+//**** END UserEdit.js **** //
+
+
+
+//**** Googlemaps Style **** //
+.popupimage{
+  width: 30px;
+}
+
+.marker{
+  width: 30px;
+}
+//**** End Googlemaps Style **** //
+
 
 .userEdit-container {
   max-width: 800px;
