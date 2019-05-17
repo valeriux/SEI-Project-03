@@ -27,7 +27,7 @@ class CabinEdit extends React.Component {
   }
 
   handleChange(e) {
-    const data = {...this.state.data, [e.target.name]: e.target.value} //existing data + the bit the user is typing
+    const data = {...this.state.data, [e.target.name]: e.target.value}
     this.setState({ data })
   }
   handleSubmit(e) {

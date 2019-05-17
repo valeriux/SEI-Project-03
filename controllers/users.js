@@ -1,16 +1,21 @@
 const User = require('../models/User')
 
 function indexRoute(req, res, next) {
-  //get all the users from the database
   User.find()
     .populate('cabins')
-    .then(users => res.json(users)) //send as JSON
-    .catch(next) //catch any errors
+    .then(users => res.json(users))
+    .catch(next)
 }
 
 function showRoute(req, res, next) {
   User.findById(req.params.id)
-    .populate('conversations cabins')
+    .populate('cabins')
+    .populate({
+      path: 'conversations',
+      populate: {
+        path: 'between cabin'
+      }
+    })
     .then(user => res.json(user))
     .catch(next)
 }
@@ -45,12 +50,9 @@ function showProfileRoute(req, res, next) {
 
 
 function commentCreateRoute(req, res, next) {
-  //  add the currentUser to the data
-  req.body.user = req.currentUser // this comes from `secureRoute`
-  // find the user we want to add a comment to
+  req.body.user = req.currentUser
   User.findById(req.params.id)
     .then(user => {
-      // add a comment to the character
       user.comments.push(req.body)
       return user.save()
     })

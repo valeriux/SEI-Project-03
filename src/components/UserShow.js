@@ -16,12 +16,17 @@ class UserShow extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`api/users/${this.props.match.params.id}`)
+    axios.get(`/api/users/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
   }
 
   canModify() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.user._id
+  }
+
+  getCorrespondent(between){
+    console.log(between)
+    return between.find(user => user._id !== Auth.getPayload().sub)// ||user[0]
   }
 
 
@@ -52,13 +57,32 @@ class UserShow extends React.Component {
 
             <div className="column is-desktop">
               <p className="subtitle">{this.state.user.bio}</p>
-              {/*button for editing userProfiles*/}
               {this.canModify() &&
-              <div className>
+              <div>
                 <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit Profile</Link>
               </div>
               }
             </div>
+
+
+            <div className="message-chain">
+              {this.state.user.conversations.map(conversation =>
+                <section key={conversation._id} className="section">
+                  <Link to={`/conversations/${conversation._id}`} className="tab button is-info">
+                    <div className="column is-one-quarter-desktop is-half-tablet">
+                      <figure className="image">
+                        <img src={conversation.cabin.image} />
+                      </figure>
+                    </div>
+
+                    {this.getCorrespondent(conversation.between).username}
+                  </Link>
+
+
+                </section>
+              )}
+            </div>
+
 
             <div className="container">
               <div className="columns is-multiline">
@@ -74,10 +98,11 @@ class UserShow extends React.Component {
                   </div>
                 )}
               </div>
-
-
             </div>
+
+
           </div>
+
 
 
 
@@ -87,5 +112,4 @@ class UserShow extends React.Component {
     )
   }
 }
-
 export default UserShow

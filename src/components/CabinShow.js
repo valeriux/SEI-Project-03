@@ -16,6 +16,7 @@ class CabinShow extends React.Component{
     }
 
     this.handleDelete = this.handleDelete.bind(this)
+    this.startConversation = this.startConversation.bind(this)
   }
 
   componentDidMount() {
@@ -34,6 +35,20 @@ class CabinShow extends React.Component{
   canModify() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.cabin.createdBy._id
   }
+
+  startConversation() {
+    const token = Auth.getToken()
+    const data = {
+      cabin: this.state.cabin._id,
+      to: this.state.cabin.createdBy._id
+    }
+    axios.post('/api/conversations', data, {
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+      .then(res => this.props.history.push(`/conversations/${res.data._id}`))
+  }
+
+
 
   render(){
     console.log(this.state, 'this.state. on the show page')
@@ -79,6 +94,10 @@ class CabinShow extends React.Component{
                 <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
               </div>
               }
+
+              {!this.canModify() && <div>
+                <button onClick={this.startConversation}>Check Availability</button>
+              </div>}
 
             </div>
             <CabinMap data={state} />
