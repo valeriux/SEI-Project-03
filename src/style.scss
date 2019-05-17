@@ -9,21 +9,12 @@ body{
 
 //**** Navbar Home Logo **** //
 ///////////////////////////////////////////////////////////
-#background-change {
-background-position: center;
-background-size: cover;
-background-image: contain;
-transition: background-image 2s ease;
-}
-
 .logo{
   max-width: 80px;
   padding:20px;
 }
-//**** END Navbar Home Logo **** //
 
-
-// **** Home Page letters style **** //
+// **** Home Page Font style **** //
 .hometitle1{
   font-size: 72px;
   color: #FFFFFF;
@@ -38,26 +29,12 @@ transition: background-image 2s ease;
   color: #FFFFFF;
 }
 
-//Style for the background image.
-.hero-body{
-  z-index: 1;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 35rem;
-  background-image: linear-gradient(to bottom, rgba(255,168,76,0.6) 0%,rgba(255,123,13,0.6) 100%), url('https://adorable-home.com/wp-content/uploads/2017/02/Fantasy-Bamboo-Cabin-2.jpg');
-  background-size: cover;
-  background-blend-mode: multiply;
-  background-size: cover;
-  background-position: center center;
-  padding: 2rem;
+.is-fullheight{
+  background-position: center;
+   background-size: cover;
+   height: 500px;
+   transition: background-image 0.8s step-end
 }
-//**** END HomePage letters style **** //
-
-
-// **** UserShow.js STYLE **** //
 
 .user-background {
   min-height: 800px;
@@ -70,8 +47,6 @@ transition: background-image 2s ease;
 .columns-userShow {
   height: 160px;
 }
-//**** END UserShow.js **** //
-
 
 
 // **** UserEdit.js STYLE **** //
@@ -95,21 +70,15 @@ transition: background-image 2s ease;
 .editTitle{
     width: 550px;
 }
-//**** END UserEdit.js **** //
 
-
-
-//**** Googlemaps Style **** //
+//**** Mapbox Style **** //
 .popupimage{
   width: 30px;
 }
-
 .marker{
   width: 30px;
+
 }
-//**** End Googlemaps Style **** //
-
-
 
 // **** BIRDS FLYING EFFECT **** //
 .bird {

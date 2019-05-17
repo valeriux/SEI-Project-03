@@ -55,7 +55,7 @@ class UserShow extends React.Component {
               {/*button for editing userProfiles*/}
               {this.canModify() &&
               <div className>
-                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit your userProfile</Link>
+                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit Profile</Link>
               </div>
               }
             </div>

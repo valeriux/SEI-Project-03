@@ -47,9 +47,7 @@ class CabinsIndex extends React.Component {
             <button className="button is-danger fas fa-list" onClick={this.ListView}></button>
           </div>
 
-          {this.state.MapView &&
-            <IndexMap className="show" cabins={this.state.data}/>
-          }
+          {this.state.MapView && <IndexMap className="show" cabins={this.state.data}/>}
 
           {this.state.ListView &&
           <div className="columns is-multiline">
