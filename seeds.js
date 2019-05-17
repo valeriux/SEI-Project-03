@@ -236,19 +236,6 @@ mongoose.connect(dbUri, (err, db) => {
           description: 'An inspirational, handcrafted cabin, hidden off the beaten track. Gorgeous location on the edge of your own private lake. Sit on the deck with your morning coffee and bask in the wonders of nature. The cabin make use of solar power, wood burners and composting techniques making it fully eco friendly.',
           email: 'example@hotmail.com',
           createdBy: users[0]
-        },
-        {
-          title: 'title example',
-          image: 'image url',
-          price: 1,
-          sleeps: 1,
-          address: 'address example',
-          postcode: 'postcode',
-          longitude: -0.00817,
-          latitude: 51.00104,
-          description: 'example',
-          email: 'example@example.com',
-          createdBy: users[0]
         }
       ])
         .then(() => mongoose.connection.close())
