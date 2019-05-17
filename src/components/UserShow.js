@@ -33,7 +33,6 @@ class UserShow extends React.Component {
 
   render() {
     if (!this.state.user) return null
-    console.log(this.state,'this is on usershow page')
     return (
       <section className="section user-background">
 
@@ -61,18 +60,12 @@ class UserShow extends React.Component {
               <p className="subtitle">{this.state.user.bio}</p>
               {/*button for editing userProfiles*/}
               {this.canModify() &&
-              <div className>
-                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit your userProfile</Link>
+              <div>
+                <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit Profile</Link>
               </div>
               }
             </div>
 
-
-            {this.canModify() &&
-            <div className="level-right">
-              <Link to={`/users/${this.state.user._id}/edit`} className="button is-info">Edit</Link>
-            </div>
-            }
 
             {/*link to Conversations Show*/}
             <div className="message-chain">
@@ -108,9 +101,9 @@ class UserShow extends React.Component {
                   </div>
                 )}
               </div>
-
-
             </div>
+
+
           </div>
 
 

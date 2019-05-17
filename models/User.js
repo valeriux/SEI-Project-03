@@ -17,8 +17,7 @@ const userSchema = new mongoose.Schema({
     required: 'Please provide a password'
   },
   photo: {
-    type: String,
-    required: 'Please provide a photo of yourself'
+    type: String
   },
   bio: {
     type: String,

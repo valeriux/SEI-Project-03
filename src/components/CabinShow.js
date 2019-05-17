@@ -32,7 +32,7 @@ class CabinShow extends React.Component{
       .then(() => this.props.history.push('/cabins'))
   }
 
-  canMondify() {
+  canModify() {
     return Auth.isAuthenticated() && Auth.getPayload().sub === this.state.cabin.createdBy._id
   }
 
@@ -45,9 +45,7 @@ class CabinShow extends React.Component{
     axios.post('/api/conversations', data, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
-      .then(res => {
-        this.props.history.push(`/conversations/${res.data._id}`)
-      })
+      .then(res => this.props.history.push(`/conversations/${res.data._id}`))
   }
 
 
@@ -98,9 +96,9 @@ class CabinShow extends React.Component{
               }
 
               {/*Button to take to conversation page for individual cabins*/}
-              <div>
+              {!this.canModify() && <div>
                 <button onClick={this.startConversation}>Check Availability</button>
-              </div>
+              </div>}
 
             </div>
             <CabinMap data={state} />

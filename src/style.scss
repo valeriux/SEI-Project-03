@@ -7,7 +7,7 @@ body{
     font-size: 18px;
 }
 
-//**** Navbar Home Logo **** //
+//**** Navbar Home **** //
 ///////////////////////////////////////////////////////////
 #background-change {
 background-position: center;
@@ -20,7 +20,15 @@ transition: background-image 2s ease;
   max-width: 80px;
   padding:20px;
 }
-//**** END Navbar Home Logo **** //
+
+.is-fullheight{
+ background-position: center;
+  background-size: cover;
+  height: 500px;
+  transition: background-image 0.8s step-end
+}
+
+//**** END Navbar Home  **** //
 
 
 // **** Home Page letters style **** //
@@ -82,6 +90,33 @@ transition: background-image 2s ease;
 .userEdit-form {
   display: flex;
 }
+
+.userEdit-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.input {
+    width: 550px;
+  }
+
+.editTitle{
+    width: 550px;
+}
+//**** END UserEdit.js **** //
+
+
+
+//**** Googlemaps Style **** //
+.popupimage{
+  width: 30px;
+}
+
+.marker{
+  width: 30px;
+}
+//**** End Googlemaps Style **** //
+
 
 .userEdit-container {
   max-width: 800px;
@@ -256,6 +291,7 @@ transition: background-image 2s ease;
 		transform: translateY(0vh) translateX(110vw) scale(0.45);
 	}
 }
+
 .tab {
   height: 105px;
 }
