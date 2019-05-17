@@ -7,21 +7,20 @@ import './style.scss'
 
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import CabinShow from './components/CabinShow'
-import CabinsIndex from './components/CabinsIndex'
 import Register from './components/Register'
 import Login from './components/Login'
+import SecureRoute from './components/SecureRoute'
+
+//***Restful****
 import CabinNew from './components/CabinNew'
 import CabinEdit from './components/CabinEdit'
-
+import CabinShow from './components/CabinShow'
+import CabinsIndex from './components/CabinsIndex'
 import UserShow from './components/UserShow'
 import UserEdit from './components/UserEdit'
+import ConversationShow from './components/ConversationShow'
 
-import Conversation from './components/Conversation'
-import MessageList from './components/MessageList'
-import SendMessageForm from './components/SendMessageForm'
 
-import SecureRoute from './components/SecureRoute'
 
 
 class App extends React.Component {
@@ -31,18 +30,15 @@ class App extends React.Component {
         <main>
           <Navbar/>
           <Switch>
+            <Route path="/conversations/:id" component={ConversationShow} />
+
             <SecureRoute path="/cabins/:id/Edit" component={CabinEdit}/>
             <SecureRoute path="/cabins/new" component={CabinNew}/>
             <Route path="/cabins/:id" component={CabinShow}/>
 
             <Route path="/users/:id/edit" component={UserEdit}/>
             <Route path="/users/:id" component={UserShow}/>
-
             <Route path="/cabins" component={CabinsIndex} />
-
-            <Route path="/conversation/:id/sendmessageform" component={SendMessageForm} />
-            <Route path="/conversation/:id/messagelist" component={MessageList} />
-            <Route path="/conversation/:id" component={Conversation} />
 
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
