@@ -57,7 +57,9 @@ class Login extends React.Component {
                   {this.state.error && <div className="help is-danger">{this.state.error}</div>}
                 </div>
 
-                <button className="button is-primary">Submit</button>
+                <button className="button is-light is-large">
+                  <p>Login</p>
+                </button>
               </form>
             </div>
           </div>
