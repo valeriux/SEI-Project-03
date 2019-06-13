@@ -61,6 +61,12 @@ class CabinShow extends React.Component{
             <div className="level-left">
               <h1 className="title is-1">{state.title}</h1>
             </div>
+            {this.canModify() &&
+            <div className="level-right">
+              <Link to={`/cabins/${state._id}/edit`} className="button is-primary"><p className="title is-5">Edit</p></Link>
+              <button className="button is-danger" onClick={this.handleDelete}><p className="title is-5">Delete</p></button>
+            </div>
+            }
           </div>
           <hr />
           <div className="columns is-multiline">
@@ -69,31 +75,31 @@ class CabinShow extends React.Component{
                 <img src={state.image} alt={state.title} />
               </figure>
             </div>
-            <div className="column is-half-desktop is-full-tablet">
-              <div className="column is-half-desktop is-full-tablet">
-                <h2 className="title is-6">Sleeps: {state.sleeps}</h2>
+            <div className="column">
+              <div className="columns is-half-desktop is-full-tablet">
+                <div className="column">
+                  <p className="title is-5">Sleeps: {state.sleeps}</p>
+                  <hr />
+                </div>
+                <div className="column">
+                  <p className="title is-5">Price: {state.price}</p>
+                  <hr />
+                </div>
                 <hr />
               </div>
-              <div className="column is-half-desktop is-full-tablet">
-                <h2 className="title is-6">Address: {state.address}</h2>
+              <div className="column">
+                <h2 className="title is-5">Address: {state.address}</h2>
                 <hr />
               </div>
-              <div className="column is-one-half">
-                <h2 className="title is-6">Description: {state.description}</h2>
+              <div className="column">
+                <h2 className="title is-5">Description: {state.description}</h2>
                 <hr />
               </div>
 
               <div className="column is-one-half">
-                <h2 className="title is-6">Created By: {state.createdBy.username}</h2>
+                <h2 className="title is-5">Owner: {state.createdBy.username}</h2>
                 <hr />
               </div>
-
-              {this.canModify() &&
-              <div className="level-right">
-                <Link to={`/cabins/${state._id}/edit`} className="button is-primary">Edit</Link>
-                <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
-              </div>
-              }
 
               {!this.canModify() && <div>
                 <button onClick={this.startConversation}>Check Availability</button>

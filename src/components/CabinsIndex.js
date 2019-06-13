@@ -43,16 +43,20 @@ class CabinsIndex extends React.Component {
         <div className="container">
 
           <div className="level-left">
-            <button className="button is-danger fas fa-map-marker-alt" onClick={this.MapView}></button>
-            <button className="button is-danger fas fa-list" onClick={this.ListView}></button>
+            <button className="button is-light is-large fas fa-map-marker-alt" onClick={this.MapView}>
+              <p className="map-list subtitle is-4">Map View</p>
+            </button>
+            <button className="button is-light is-large fas fa-list" onClick={this.ListView}>
+              <p className="map-list subtitle is-4">List View</p>
+            </button>
           </div>
 
           {this.state.MapView && <IndexMap className="show" cabins={this.state.data}/>}
 
           {this.state.ListView &&
-          <div className="columns is-multiline">
+          <div className="columns is-multiline listviewflex">
             {this.state.data.map(cabin =>
-              <div key={cabin._id} className="column is-one-third-desktop is-one-third-tablet">
+              <div key={cabin._id} className="column is-one-third-desktop is-half-tablet">
                 <Link to ={`/cabins/${cabin._id}`}>
                   <CabinCard {...cabin} />
                 </Link>

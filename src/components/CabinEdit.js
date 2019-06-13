@@ -174,7 +174,9 @@ class CabinEdit extends React.Component {
                   </div>
                 </div>
                 {this.state.errors.email && <div className="help is-danger">{this.state.errors.email}</div>}
-                <button className="button is-primary">Submit</button>
+                <button className="button is-light is-large">
+                  <p>Submit</p>
+                </button>
               </form>
             </div>
           </div>

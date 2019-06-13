@@ -15,7 +15,6 @@ class IndexMap extends React.Component {
       pin: {},
       pinClick: false
     }
-
   }
 
   handleMarkerClick(cabin) {
@@ -61,9 +60,9 @@ class IndexMap extends React.Component {
                   }}>
 
                   <div>
-                    <h3>{this.state.selectedCabin.title}</h3>
+                    <h3 className=" popupname subtitle is-3">{this.state.selectedCabin.title}</h3>
+                    <h3 className=" popupname subtitle is-4"> Price: {this.state.selectedCabin.price} | Sleeps: {this.state.selectedCabin.sleeps}</h3>
                     <img className="popupimage"src={this.state.selectedCabin.image} alt={this.state.selectedCabin.name}/>
-                    <h3> Price: {this.state.selectedCabin.price} | Sleeps: {this.state.selectedCabin.sleeps}</h3>
                   </div>
                 </Popup>
               </Link>

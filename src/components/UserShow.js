@@ -37,12 +37,13 @@ class UserShow extends React.Component {
 
         <div className="container userProfile">
           <div className="columns is-multiline columns-userShow">
+
             <div className="column is-one-third-desktop img-userProfile">
               <figure className="image is-128x128 has-text-centered">
                 <img className="" src={this.state.user.photo}alt={this.state.user.username} />
               </figure>
-
             </div>
+
             <div className="column is-two-thirds-desktop">
               <p className="subtitle is-3">Welcome back {this.state.user.username}</p>
               <p className="subtitle">Email: {this.state.user.email}</p>

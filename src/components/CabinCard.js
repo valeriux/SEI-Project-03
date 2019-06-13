@@ -9,7 +9,7 @@ const CabinCard = (props) => {
       </div>
 
       <div className="card-image">
-        <figure className="image">
+        <figure className="image cabinimage">
           <img src={props.image} alt={props.title}/>
         </figure>
       </div>

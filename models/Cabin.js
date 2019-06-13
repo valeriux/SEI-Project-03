@@ -5,7 +5,7 @@ const uniqueValidator = require('mongoose-unique-validator')
 
 const cabinSchema = new mongoose.Schema({
   title: {type: String, required: true},
-  image: { type: String, required: true},
+  image: { type: String, required: false},
   price: {type: Number, required: true},
   sleeps: { type: Number, required: true},
   address: {type: String, required: true},
@@ -13,7 +13,7 @@ const cabinSchema = new mongoose.Schema({
   longitude: {type: Number, required: true},
   latitude: {type: Number, required: true},
   description: {type: String, required: true},
-  email: {type: String, required: true},
+  email: {type: String, required: false},
   createdBy: {type: mongoose.Schema.ObjectId, ref: 'User'}
 })
 
