@@ -3,7 +3,7 @@
 ![image](https://user-images.githubusercontent.com/47919053/60426600-e2225a00-9bec-11e9-88f1-3946013dd52b.png)
 
 # Timeframe
-7 days
+5 days
 
 # Technologies used
 * React
