@@ -16,7 +16,6 @@
 * Bulma (CSS framework)
 * SCSS
 * GitHub
-* React Select
 * ReactMapBox-GL
 * OpenCageData - location lookup
 
