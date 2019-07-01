@@ -1,4 +1,4 @@
-# GA - SEI - Project-03
+# GA - SEI - Project-03 - Cabin Fever
 
 ![image](https://user-images.githubusercontent.com/47919053/60426600-e2225a00-9bec-11e9-88f1-3946013dd52b.png)
 
