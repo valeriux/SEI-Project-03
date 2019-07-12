@@ -29,7 +29,7 @@ The application is deployed via Git on Heroku and can be found here: [Cabin Feve
 ## Installation
 
 - Clone or download the repo.
-- Execute this commands
+- Execute this command:
 * yarn mongod
 * yarn seed
 * yarn run:server
