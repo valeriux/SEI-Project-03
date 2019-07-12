@@ -28,12 +28,12 @@ The application is deployed via Git on Heroku and can be found here: [Cabin Feve
 
 ## Installation
 
-- Clone or download the repo.
-- Execute this command:
-* yarn mongod
-* yarn seed
-* yarn run:server
-* yarn run:client
+* Clone or download the repo.
+* Execute this command:
+  - yarn mongod
+  - yarn seed
+  - yarn run:server
+  - yarn run:client
 
 ### App overview
 At project initiation, we soon agreed that we would like to work with MapBox, a service which we had not covered during the course at General Assembly. From this came the idea to emulate Google Maps, but to add Cabins on the UK's southern coast.
