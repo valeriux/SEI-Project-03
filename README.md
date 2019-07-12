@@ -26,6 +26,15 @@ The brief was to build a full-stack application with a React front-end and noSQL
 The application is deployed via Git on Heroku and can be found here: [Cabin Fever](https://cabin-fever.herokuapp.com).
 
 
+## Installation
+
+- Clone or download the repo.
+- Execute this commands
+* yarn mongod
+* yarn seed
+* yarn run:server
+* yarn run:client
+
 ### App overview
 At project initiation, we soon agreed that we would like to work with MapBox, a service which we had not covered during the course at General Assembly. From this came the idea to emulate Google Maps, but to add Cabins on the UK's southern coast.
 
@@ -42,14 +51,6 @@ Clicking on a cabin provides information including the location, images and even
 
 ![image](https://user-images.githubusercontent.com/47919053/60428788-96be7a80-9bf1-11e9-975b-94ad07a5a569.png)
 
-### Installation
-
-- Clone or download the repo.
-- Execute this commands
-* yarn mongod
-* yarn seed
-* yarn run:server
-* yarn run:client
 
 #### The Code
 
