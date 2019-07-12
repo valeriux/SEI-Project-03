@@ -42,6 +42,14 @@ Clicking on a cabin provides information including the location, images and even
 
 ![image](https://user-images.githubusercontent.com/47919053/60428788-96be7a80-9bf1-11e9-975b-94ad07a5a569.png)
 
+### Installation
+
+- Clone or download the repo.
+- Execute this commands
+* yarn mongod
+* yarn seed
+* yarn run:server
+* yarn run:client
 
 #### The Code
 
